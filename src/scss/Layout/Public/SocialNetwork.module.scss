@@ -1,0 +1,43 @@
+.UlWrapper{
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+    top: 20px;
+    & > li{
+        width: 21px;
+        height: 21px;
+        border-radius: 4px;
+        &:not(:last-child){
+            margin-left: 25px;
+        }
+        & > a {
+            color: #fefefe;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            right: 3px;
+            top: 2px;
+            
+            svg {
+                padding: 2px;
+                background-color: #CECECE;
+                width: 20px !important;
+                height:20px !important;
+                border-radius: 3px;
+                vertical-align: middle;
+                display: inline !important;
+                margin-left: 10px;
+            }
+            &span{
+                display: inline !important;
+                font-size: 11px !important;
+            }
+            &:hover{
+                color: #841C1D;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.Input{
+    background-color: #ECECEC;
+    transition: all 0.3s ease-in-out;
+    width: 210px;
+    height: 24px;
+    border: none;
+    background-image: url("../../../assets/images/icons/search.png");
+    background-size: 14px 14px;
+    background-repeat: no-repeat;
+    background-position: 7px center;
+    outline: none;
+    padding: {
+        top: 10px;
+        bottom: 2px;
+        left: 28px;
+        right: 10px;
+    };
+    &:hover,&:focus{
+        background-color: #d3d3d3;
+    }
+}

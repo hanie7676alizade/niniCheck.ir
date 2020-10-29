@@ -1,0 +1,180 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./scss/offset_rtl";
+@import "./scss/font";
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 90%;
+}
+
+* {
+  font-family: IRANSans-web, sans-serif;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  padding-right: 0.75rem;
+  padding-left: calc(1.6em + 0.75rem);
+  // background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23e3342f' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23e3342f' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center left calc(0.4em + 0.1875rem);
+  background-size: calc(0.8em + 0.375rem) calc(0.8em + 0.375rem);
+}
+
+.was-validated textarea.form-control:invalid,
+textarea.form-control.is-invalid {
+  padding-right: 0.75rem;
+  padding-left: calc(1.6em + 0.75rem);
+  background-position: top calc(0.4em + 0.1875rem) left calc(0.4em + 0.1875rem);
+}
+
+.input-group {
+  direction: ltr;
+
+  .invalid-feedback,
+  input {
+    direction: rtl;
+  }
+}
+
+:disabled {
+  cursor: not-allowed;
+}
+
+.dropdown-toggle::after {
+  margin-left: 0;
+  margin-right: 0.255em;
+}
+
+.btn-group > .btn {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.btn-group > .btn:first-child,
+.btn-group > .btn-group:first-child > .btn {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 0.2rem !important;
+  border-bottom-right-radius: 0.2rem !important;
+}
+
+.btn-group > .btn:last-child:not(.dropdown-toggle),
+.btn-group > .btn-group:last-child > .btn {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: 0.2rem !important;
+  border-bottom-left-radius: 0.2rem !important;
+}
+
+.nini-container {
+  margin: {
+    right: 7px;
+    left: 7px;
+  }
+
+  @media screen and (min-width: 768.99px) {
+    margin: {
+      right: 30px;
+      left: 30px;
+    }
+  }
+
+  @media screen and (min-width: 1024.99px) {
+    margin: {
+      right: 124px;
+      left: 124px;
+    }
+  }
+}
+
+//Drag
+.scroll-box {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroll-box__wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  box-sizing: border-box;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.scroll-box__wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-box__container {
+  height: 100%;
+  display: inline-flex;
+}
+
+.page-item:first-child .page-link{
+  border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+.page-item:last-child .page-link{
+  border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}

@@ -1,0 +1,142 @@
+.Wrapper {
+  background-color: #081331;
+  background-image: linear-gradient(
+    -225deg,
+    #081331 0%,
+    #0e2155 50%,
+    #081331 100%
+  );
+  color: ghostwhite;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  top: 0;
+  width: 250px;
+  right: -250px;
+  transition: all 400ms cubic-bezier(0.13, 0.47, 0.62, 0.965);
+  z-index: 100;
+
+  @media screen and (min-width: 768px) {
+    width: 45px;
+    right: 0;
+    &.Open {
+      width: 250px;
+    }
+  }
+
+  .Nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    & > li {
+      & > a,
+      & > div.Parent {
+        cursor: pointer;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        color: ghostwhite;
+        text-decoration: none;
+        padding: 9px 10px 8px;
+        font: {
+          size: 1.2rem;
+        }
+
+        &.Parent {
+
+          & .Header{
+            color: inherit;
+          }
+
+          padding: 0;
+          display: block;
+          & > div:first-child {
+            padding: 9px 10px 8px;
+            justify-content: space-between;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            & > div {
+              white-space: nowrap;
+              display: flex;
+              align-items: center;
+
+              & > span {
+                margin: {
+                  right: 15px;
+                }
+                white-space: nowrap;
+              }
+            }
+
+            & > .Caret {
+              transition: all 0.2s linear;
+            }
+          }
+          & > div:nth-child(2) {
+            & > .SubMenu {
+              background-color: #081331;
+              background-image: linear-gradient(
+                -225deg,
+                #0d1a41 0%,
+                #142b69 50%,
+                #0d1a41 100%
+              );
+            }
+            .Nav {
+              & > li {
+                & > a {
+                  padding-right: 8px;
+                  transition: all 0.2s linear;
+                }
+              }
+            }
+          }
+
+          &.Open {
+            & > div {
+              & > .Caret {
+                transform: rotateZ(180deg);
+              }
+            }
+          }
+        }
+        &.Active {
+          background-color: #0b1225;
+        }
+
+        & > span {
+          margin: {
+            right: 15px;
+          }
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  &.Open {
+    right: 0;
+    .Nav {
+      & > li {
+        & > div.Parent {
+          & > div:nth-child(2) {
+            .Nav {
+              & > li {
+                & > a {
+                  padding-right: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.Slider {
+  overflow: hidden;
+  transition-duration: 0.2s;
+}

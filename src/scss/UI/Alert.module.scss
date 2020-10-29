@@ -1,0 +1,86 @@
+.Amin{
+    background-color: gray;
+}
+.Wrapper{
+    position: fixed;
+    top: 50px;
+    left: 0;
+    margin: 0 15px 0 50px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #0005;
+    padding: 15px 15px 15px 25px;
+    font-weight: bold;
+    transform-origin: center center;
+    background-color: #f9f9f9;
+    z-index: 1000;
+
+    &.Error{
+        color: #a33;
+    }
+    &.Success{
+        color: #3a3;
+    }
+    &.Warning{
+        color: rgb(199, 149, 43);
+    }
+
+    &.Info{
+        color: rgb(32, 193, 214);
+    }
+
+    .Icon{
+        vertical-align: middle;
+    }
+
+    h5{
+        display: inline-block;
+    }
+}
+
+.AlertEnter{
+    // opacity: 0;
+}
+.AlertEnterActive{
+    animation: show 0.3s linear forwards;
+}
+.AlertExit{
+    // opacity: 1;
+}
+.AlertExitActive{
+    animation: hide 0.3s linear forwards;
+}
+
+@keyframes show{
+    0%{
+        opacity: 0;
+        box-shadow: 1px 1px 3px #0005;
+        transform: translate(0,-7px);
+    }
+    25%{
+        transform: rotateZ(-5deg) translate(0,7px);
+        opacity: 0.5;
+        box-shadow: 10px 3px 5px #0005;
+    }
+    50%{
+        transform: rotateZ(5deg) translate(-7px,-7px);
+        opacity: 1;
+        box-shadow: -10px 3px 5px #0005;
+    }
+    75%{
+        transform: rotateZ(-5deg) translate(7px,7px);
+        box-shadow: 2px 2px 5px #0005;
+    }
+    100%{
+        transform: rotateZ(0) translate(0,0);
+        box-shadow: 1px 1px 3px #0005;
+    }
+}
+
+@keyframes hide{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}

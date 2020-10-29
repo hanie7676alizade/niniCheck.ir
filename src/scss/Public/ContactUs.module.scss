@@ -1,0 +1,24 @@
+.ContactUsPage {
+    width: 100%;
+    margin: 40px auto;
+    iframe{
+        margin-bottom: 30px;
+    }
+    span{
+        margin: 0;
+        padding-right: 20px;
+        float: right;
+        font-size: 14.5px;
+        color: #841c1d ;
+        font-weight: 600;
+    }
+    p{
+        float: right;
+        margin: 0 10px 30px;
+        font-size: 15px;
+        color: #666666 ;
+        font-weight: 500;
+        line-height: 23px;
+        // background-color: #841c1e3b;
+    }
+}

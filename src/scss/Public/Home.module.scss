@@ -1,0 +1,377 @@
+.MainWrapper {
+    .SlideImage {
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+    .flashIcon {
+        width: 40px;
+        height: 40px;
+        font-weight: 100;
+        color: #841c1d;
+        position: relative;
+        margin: -23px auto 0;
+        display: block;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        @media screen and (max-width: 768px) {
+            display: block;
+            margin: -20px auto 0;
+        }
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    .WelcomeMessage {
+        position: absolute;
+        top: 40px;
+        margin: 0 2%;
+        background-color: #ffffff;
+        height: auto;
+        box-shadow: 0px 5px 15px #adadad !important;
+        padding: 0 2px;
+        width: 700px !important ;
+
+        @media screen and (min-width: 1150px) {
+            width: 660px !important ;
+            position: absolute;
+            top: 100px;
+            right: 50px;
+            margin: 0 5%;
+            box-shadow: 0px 5px 15px #adadad !important;
+            padding: 0 10px;
+        }
+        @media screen and (max-width: 768px) {
+            position: relative !important;
+            width: 100% !important;
+            box-shadow: 0px 5px 15px #e9e9e9 !important;
+            margin: 0;
+            padding: 0;
+            top: 0;
+        }
+        .lgIcon {
+            font-size: calc(40px + 6 * ((900vw - 320px) / 9080));
+            color: #87aac0;
+            transform: rotatex(180deg);
+            position: relative;
+            top: -10px;
+            margin-top: -20px;
+            left: -20px;
+            display: block;
+            @media screen and (max-width: 992.01px) {
+                display: none;
+            }
+        }
+        h4 {
+            height: 40px;
+            line-height: 40px;
+            color: #555555;
+            font-weight: 400;
+        }
+        p {
+            color: #999999;
+            font-weight: 300;
+            width: 95%;
+            line-height: 30px;
+            margin: 0 20px 0 0;
+            font-size: 15px;
+        }
+        a {
+            color: #686868;
+            font-weight: 400;
+            line-height: 40px;
+            position: relative;
+            margin: 0 50px 0 0;
+            font-size: 13px;
+            padding: 0 2px;
+            border-bottom: 2px solid #287494;
+            transition: all 0.2s linear;
+
+            @media screen and (max-width: 992.01px) {
+                margin: 0;
+            }
+
+            &.Active,
+            &:hover {
+                text-decoration: none;
+                color: #287494;
+                background-color: #fff;
+                border-bottom: 7px solid #287494;
+            }
+        }
+    }
+    .StartTest {
+        text-align: center;
+        margin-top: 20px !important;
+        color: #aaaaaa;
+        width: 53%;
+
+        @media screen and (max-width: 1300px) {
+            width: 80%;
+        }
+        @media screen and (max-width: 868px) {
+            width: 100%;
+        }
+        img {
+            margin: 30px 0 0;
+            width: 105px;
+            height: 140px;
+        }
+        h6 {
+            font-size: 15.2px;
+            margin: 42px 0 35px;
+        }
+        button {
+            background-color: #287494;
+            width: 170px;
+            height: 46px;
+            border: none;
+            border-radius: 1px;
+            color: #f7f7f7;
+            font-weight: 300;
+            font-size: 18px;
+        }
+        .madImage {
+            width: 200px;
+            height: 24px;
+            margin: 25px 0 18px;
+        }
+        p {
+            font-size: 19.6px;
+            font-weight: 500;
+            color: #999999;
+        }
+        .LeftSideIcon {
+            float: left;
+
+            @media screen and (max-width: 992.01px) {
+                float: none;
+            }
+            @media screen and (max-width: 592.01px) {
+                display: none;
+            }
+        }
+        .RightSideIcon {
+            float: right;
+
+            @media screen and (max-width: 992.01px) {
+                float: none;
+            }
+            @media screen and (max-width: 592.01px) {
+                display: none;
+            }
+        }
+    }
+    .AboutTest {
+        text-align: center;
+        margin: 25px 0 0 !important;
+        color: #aaaaaa;
+        background-color: #f1f9fb;
+        padding: 60px 0 45px;
+        span {
+            color: #287494;
+            font-weight: 500;
+            font-size: 18.5px;
+        }
+        p {
+            margin: 20px auto;
+            width: 60%;
+            // height: 50px;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 27px;
+            @media screen and (max-width: 1292.01px) {
+                width: 90%;
+            }
+        }
+        a {
+            color: #999999;
+            font-weight: 600;
+            line-height: 30px;
+            margin: 0px auto;
+            font-size: 12.5px;
+            border-bottom: 2px solid #287494;
+            padding: 0 2px;
+            transition: all 0.2s linear;
+
+            &.Active,
+            &:hover {
+                text-decoration: none;
+                color: #287494;
+                border-bottom: 7px solid #287494;
+            }
+        }
+        a:hover {
+            border-bottom: 10px solid #287494;
+            text-decoration: none;
+        }
+    }
+    .DragWeeks {
+        margin: 45px 0;
+        width: 100%;
+
+        h4 {
+            color: #555555;
+            font-size: 23px;
+            width: 100%;
+            text-align: center;
+            margin: 0px 0 60px;
+            font-weight: 400;
+        }
+        .swiperWrapper {
+            width: 88.5%;
+            margin: 0 auto;
+            
+            @media screen and (max-width: 1352.01px) {
+                width: 100%;
+            }
+
+            .WeekItem {
+                position: relative;
+                text-decoration: none;
+                z-index: 100;
+
+                img {
+                    width: 49px;
+                    height: 49px;
+                    border-radius: 49px;
+                    background-color: #eeeeee;
+                    padding: 10px;
+                    display: block;
+                    margin: auto;
+                }
+                .circle {
+                    margin: 20px auto 20px;
+                    width: 13.3px !important;
+                    height: 14px;
+                    border-radius: 13px;
+                    border: 2px solid #cccccc;
+                    background-color: #ffffff;
+                }
+                span {
+                    width: 100%;
+                    display: block;
+                    text-align: center;
+                    font-size: 27px;
+                    font-weight: 600;
+                    color: #bbbbbb;
+                    font-family: IRANSans-web-NUM;
+                    margin: 0px 0;
+                }
+                &:hover {
+                    img {
+                        background-color: #91afc7;
+                    }
+                    span {
+                        color: #5e88aa;
+                    }
+                }
+            }
+        }
+        .lineBottom {
+            border-bottom: 3px solid #dddddd;
+            position: relative;
+            top: -68px;
+        }
+    }
+    .Instagram {
+        .firstBackG {
+            background-color: #f1f1ef;
+            height: 160px;
+            text-align: center;
+        }
+        h3 {
+            color: #287494;
+            font-weight: 700;
+            margin: 35px auto -5px;
+            font-size: 27px;
+            height: 50px;
+            @media screen and (max-width: 992.01px) {
+                font-size: 25px;
+            }
+        }
+        p {
+            height: 50px;
+            line-height: 50px;
+            font-weight: 500;
+            color: #999999;
+            font-size: 20px;
+            margin: 0 auto;
+        }
+        .arrowIcon {
+            position: relative;
+            z-index: 200;
+            color: #841c1d;
+            font-size: 25px;
+            margin: 0 0 10px;
+        }
+        .teddyImg {
+            width: 225px;
+            z-index: 300 !important;
+            margin: 0 0 0 100px;
+            float: left;
+            position: absolute;
+            left: 0px;
+            @media screen and (max-width: 992.01px) {
+                width: 150px;
+                top: 0px;
+            }
+        }
+        .instagramMobile {
+            width: 75%;
+            z-index: 300 !important;
+            margin: -60px 0 0 100px;
+            float: left;
+            position: absolute;
+            left: -70px;
+            @media screen and (max-width: 1300.01px) {
+                width: 83%;
+                top: 40px;
+            }
+        }
+        .secondBackG {
+            background-image: linear-gradient(to right, #cd0051, #610097);
+            height: 117px;
+            width: 100%;
+            position: relative;
+            bottom: 0px !important;
+            @media screen and (max-width: 992.01px) {
+                width: 100px !important;
+            }
+            p {
+                text-align: center;
+                font-size: 30px;
+                margin: 30px 0;
+                span {
+                    color: #fff !important;
+                    line-height: 10px;
+                }
+                svg {
+                    margin: 0 5px -5px !important;
+                }
+                .instagramIcon {
+                    font-size: 40px;
+                    color: #fff;
+                    display: inline !important;
+                }
+                a:hover {
+                    text-decoration: none !important;
+                    font-size: 31px;
+                }
+                @media screen and (max-width: 992.01px) {
+                    font-size: 20px;
+                    .instagramIcon {
+                        margin: 0 2px -2px !important;
+                        font-size: 25px;
+                    }
+                    a:hover {
+                        text-decoration: none !important;
+                        font-size: 21px;
+                    }
+                }
+            }
+        }
+    }
+}

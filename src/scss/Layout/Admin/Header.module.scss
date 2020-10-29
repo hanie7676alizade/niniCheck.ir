@@ -1,0 +1,25 @@
+.Wrapper{
+    background-color: rgb(8, 19, 49);
+    color: ghostwhite;
+    transition: all 400ms cubic-bezier(0.130, 0.470, 0.620, 0.965);
+
+    &.MenuOpen{
+        margin-right: 250px;
+    }
+
+    @media screen and (min-width: 768px) {
+        margin-right: 45px;
+    }
+
+    .MenuToggle{
+        cursor: pointer;
+    }
+
+    .PageTitle{
+        margin:{
+            top:13px;
+            right: 15px;
+        };
+        white-space: nowrap;
+    }
+}

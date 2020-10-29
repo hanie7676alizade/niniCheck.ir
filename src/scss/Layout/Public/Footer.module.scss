@@ -1,0 +1,183 @@
+.FooterMainWrapper {
+    justify-self: end;
+    background-color: #f1f1ef;
+    .SubFooter {
+        width: 83%;
+        margin: 0 auto;
+        padding: {
+            top: 65px;
+            bottom: 65px;
+        }
+        @media screen and( max-width:767px ) {
+            padding: {
+                top: 20px;
+                bottom: 50px;
+            }
+        }
+        @media screen and( max-width:1120px ) {
+            width: 90%;
+        }
+
+        .FooterQuickAccess {
+            .FooterColums {
+                h4 {
+                    font: {
+                        size: 12.8px;
+                        weight: 500;
+                    }
+                    color: #999999;
+                    display: inline-block;
+                    position: relative;
+                    margin: {
+                        bottom: 15px;
+                    }
+                    padding: {
+                        bottom: 15px;
+                    }
+
+                    &::after {
+                        display: block;
+                        content: " ";
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        background-color: #2a7592;
+                        height: 10px;
+                    }
+                }
+                ul {
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                    li {
+                        a {
+                            display: block;
+                            font-size: 13px !important;
+                            padding: {
+                                top: 5px;
+                                bottom: 5px;
+                            }
+
+                            color: #b3b3b3;
+                            transition: all 0.3s ease-in-out;
+                            span {
+                                font: {
+                                    size: 12px !important;
+                                }
+                                display: inline !important;
+                            }
+                            &:hover {
+                                text-decoration: none;
+                                color: #821a21;
+                            }
+                        }
+                    }
+                }
+
+                .SocialNetwork {
+                    flex-flow: column nowrap !important;
+                    margin: -35px 0 0;
+                    li {
+                        background-color: rgba(255, 255, 255, 0);
+                        margin: 10px 0;
+                        width: 100%;
+                        font-size: 8px;
+                        &span {
+                            display: inline !important;
+                        }
+                    }
+                    svg {
+                        width: 17px !important;
+                        height: 17px !important;
+                        color: rgba(255, 255, 255, 0.849);
+                        vertical-align: middle;
+                        display: inline !important;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+        .FooterNewsletter {
+            background-color: #fff;
+            position: relative;
+            padding: 35px 35px 20px 2.5%;
+            margin: 10px 50px 0 0 !important;
+
+            @media screen and( max-width:991px ) {
+                margin: 50px 0 0 !important;
+            }
+
+            .Quote {
+                position: absolute;
+                color: #87aabf;
+                left: 29px;
+                top: -23px;
+            }
+            h4 {
+                color: #909090;
+                font-size: 15px;
+                margin: 0 0 10px 0;
+            }
+            p {
+                font-size: 12px;
+                color: #b3b3b3;
+                margin-bottom: 27px;
+            }
+            .formWrapper {
+                width: 100% !important;
+                form {
+                    width: 100%;
+                    div {
+                        margin: 0 !important;
+                        input {
+                            width: 70%;
+                            float: right;
+                            height: 34px;
+                            padding: 0 1%;
+                            margin: 0 0 0 3%;
+                            background-color: #f0f0f0a9;
+                            border: 1px solid #d8d8d862;
+                            border-radius: 2px;
+                            outline: none;
+                            display: block;
+                            font-size: 13px;
+                        }
+                        ::placeholder {
+                            color: #bbbbbb !important;
+                            font-size: 10px;
+                        }
+                    }
+                    button {
+                        border-radius: 0;
+                        font-size: 12px;
+                        width: 27%;
+                        height: 34px;
+                        background-color: #2a7592;
+                    }
+                    .greenText {
+                        color: rgb(0, 179, 0) !important;
+                        font-size: 10px;
+                        position: absolute;
+                        margin: 7px 0 -7px;
+                    }
+                    .redText {
+                        color: rgb(209, 0, 0) !important;
+                        font-size: 10.5px;
+                        position: absolute;
+                        margin: 7px 0 -7px;
+                    }
+                }
+            }
+        }
+    }
+    .Copyright {
+        text-align: center;
+        height: 48px;
+        color: #b3b3b3;
+        background-color: #fff;
+        font-size: 8.5px;
+        p {
+            margin: -10px 0 0 0;
+        }
+    }
+}

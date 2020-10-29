@@ -1,0 +1,42 @@
+.ContentWrapper{
+    position: relative;
+    .MenuBackdrop{
+        position: absolute;
+        width: 100%;
+        min-height: calc(100vh - 45px);
+        height: 100%;
+        background-color: #000;
+        opacity: 0;
+        top: 0;
+        z-index: 1;
+
+        &.MenuOpen{
+            z-index: 3;
+            animation: show 0.4s forwards;
+        }
+    }
+
+    .Content{
+        position: relative;
+        z-index: 2;
+        min-height: calc(100vh - 45px);
+        background-color: white;
+        @media screen and (min-width: 768px) {
+            margin-right: 45px;
+            transition: all 400ms cubic-bezier(0.130, 0.470, 0.620, 0.965);
+
+            &.MenuOpen{
+                margin-right: 250px;
+            }
+        }
+    }
+}
+
+@keyframes show{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0.6;
+    }
+}

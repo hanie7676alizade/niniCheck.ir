@@ -1,0 +1,25 @@
+.MenuToggle{
+    padding: 8px;
+    .Humberger{
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: ghostwhite;
+        margin: 5px auto;
+        transition: all 400ms cubic-bezier(0.130, 0.470, 0.620, 0.965);
+    }
+
+    &.MenuOpen{
+        .Humberger{
+            &:nth-child(2){
+                opacity: 0;
+            }
+            &:nth-child(1){
+                transform: rotateZ(-45deg) translate(-5px, 6px);
+            }
+            &:nth-child(3){
+                transform: rotateZ(45deg) translate(-5px, -6px);
+            }
+        }
+    }
+}
