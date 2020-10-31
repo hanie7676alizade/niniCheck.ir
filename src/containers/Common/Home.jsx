@@ -11,7 +11,6 @@ import Instagram from "components/Common/Home/Instagram"
 import DragWeeks from "components/Common/Home/DragWeeks"
 import Alert from "components/UI/Alert/Alert"
 
-import { initiateFetchConfig } from "store/Config/actions"
 import { frontFetchAll, frontSetRows } from "store/Post/actions"
 import { setShowAlert, isSaveEmail, setMessage } from "store/NewsLetter/actions"
 import Articles from "components/layout/Public/Articles/Articles"
@@ -41,6 +40,7 @@ class Home extends React.Component {
     }
     componentDidMount() {
         this.props.onFrontSetRows(40)
+        console.log('onFrontSetRows(40)',this.props.WeekPosts);
         this.props.onFetch40Weeks("هفته-به-هفته")
     }
     componentDidUpdate() {
@@ -98,7 +98,6 @@ const mapStatesToProps = state => {
 
 const mapActionsToProps = dispatch => {
     return {
-        onFetchConfig: section => dispatch(initiateFetchConfig(section)),
         onSetMessage: data => dispatch(setMessage(data)),
         onIsSaveEmail: data => dispatch(isSaveEmail(data)),
         onSetShowAlert: data => dispatch(setShowAlert(data)),

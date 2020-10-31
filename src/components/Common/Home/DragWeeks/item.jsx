@@ -10,6 +10,7 @@ function WeekItem(props) {
         })
     }
     importAll(require.context("assets/images/40Weeks/", true, /\.svg$/))
+    if(props.WeekPosts){
     return (
         <Link to={`/${props.WeekPosts.slug}`} className={classes.WeekItem}>
                 <img src={cache[`./fruit_week${props.item}.svg`]} alt="" />
@@ -17,7 +18,8 @@ function WeekItem(props) {
             <div className={classes.circle}></div>
             <span>{props.item}</span>
         </Link>
-    )
+    )}
+    return null
 }
 
 export default WeekItem

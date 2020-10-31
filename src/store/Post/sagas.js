@@ -87,18 +87,18 @@ export function* fetchFrontAllSaga(action) {
             })
             .join("&")
             .trim()
-            const history = createBrowserHistory()
-        if (typeof queryStrig === "string" && queryStrig.length) {
-            history.replace({
-                pathname: document.location.pathname,
-                search: `?${queryStrig}`
-            })
-        } else {
-            history.replace({
-                pathname: document.location.pathname,
-                search: ''
-            })
-        }
+            // const history = createBrowserHistory()
+        // if (typeof queryStrig === "string" && queryStrig.length) {
+        //     history.replace({
+        //         pathname: document.location.pathname,
+        //         search: `?${queryStrig}`
+        //     })
+        // } else {
+        //     history.replace({
+        //         pathname: document.location.pathname,
+        //         search: ''
+        //     })
+        // }
 
         const response = yield axios.get(`/post/${action.data}?${queryStrig}`)
         yield put(actions.frontSetAll(response.data))
