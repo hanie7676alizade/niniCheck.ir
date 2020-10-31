@@ -169,7 +169,8 @@
         margin: 25px 0 0 !important;
         color: #aaaaaa;
         background-color: #f1f9fb;
-        padding: 60px 0 45px;
+        padding: 60px 0 5px;
+        height: auto;
         span {
             color: #287494;
             font-weight: 500;
@@ -178,7 +179,6 @@
         p {
             margin: 20px auto;
             width: 60%;
-            // height: 50px;
             font-weight: 400;
             font-size: 13px;
             line-height: 27px;
@@ -186,26 +186,48 @@
                 width: 90%;
             }
         }
-        a {
+        ul {
+            margin: 0 0 !important;
+            padding: 0 !important;
+            li {
+                list-style: none;
+            }
+        }
+        button {
+            position: relative;
             color: #999999;
+            background-color: #00000000;
             font-weight: 600;
             line-height: 30px;
-            margin: 0px auto;
+            margin: 10px auto 30px;
             font-size: 12.5px;
-            border-bottom: 2px solid #287494;
+            border: none;
+            border-bottom: 7px solid #287494;
+            height: 40px;
             padding: 0 2px;
             transition: all 0.2s linear;
 
-            &.Active,
             &:hover {
-                text-decoration: none;
+                margin: 7px auto 33px !important;
+                border-bottom: 2px solid #287494;
                 color: #287494;
-                border-bottom: 7px solid #287494;
+            }
+            &:focus {
+                outline: none;
             }
         }
-        a:hover {
-            border-bottom: 10px solid #287494;
-            text-decoration: none;
+        div {
+            overflow: hidden;
+        }
+        //show about test source
+        .enterShowSource {
+            height: 0;
+        }
+        .enterActiveShowSource {
+            animation-name: showSource;
+            animation-duration: 1s;
+            animation-timing-function: ease-in;
+            animation-fill-mode: forwards;
         }
     }
     .DragWeeks {
@@ -223,7 +245,7 @@
         .swiperWrapper {
             width: 88.5%;
             margin: 0 auto;
-            
+
             @media screen and (max-width: 1352.01px) {
                 width: 100%;
             }
@@ -373,5 +395,20 @@
                 }
             }
         }
+    }
+}
+
+@keyframes showSource {
+    0% {
+        height: 0px;
+    }
+    40% {
+        height: 500px;
+    }
+    80% {
+        height: 1000px;
+    }
+    100% {
+        height: fit-content;
     }
 }
