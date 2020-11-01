@@ -59,20 +59,17 @@ const AboutTest = () => {
         enter: classes.enterShowSource,
         enterActive: classes.enterActiveShowSource
     }
-    const onShowSource=()=>{
-       let elemWrapper= document.getElementsByClassName('AboutTest')[0]
-       let buttonElement = elemWrapper.getElementsByTagName('button')[0]
-      //  buttonElement.style.display='none'
-      elemWrapper.removeChild(buttonElement)
-       console.log(ShowSource, "ShowSource",buttonElement)
-
-       setShowSource(true)
+    const onShowSource = () => {
+        let elemWrapper = document.getElementsByClassName("AboutTest")[0]
+        let buttonElement = elemWrapper.getElementsByTagName("button")[0]
+        elemWrapper.removeChild(buttonElement)
+        setShowSource(true)
     }
     return (
         <React.Fragment>
             <Col className={`${classes.AboutTest} AboutTest `}>
                 <span>درباره ویژگی های تست ما</span>
-                <p className={classes.firstPara}>
+                <p>
                     نی‌نی چک یه تست تشخیص جنسیته که بر اساس رفرنس‌های معتبر
                     جهانی جمع‌آوری شده. البته همه‌مون خوب میدونیم که فرزندمون با
                     هر جنسیتی که هست، انسان باارزش، پراز پتانسیل و پر از برکت
@@ -104,8 +101,14 @@ const AboutTest = () => {
                                 <li>
                                     <p>
                                         {item.text}
-                                        <a href={item.link}>{item.link}</a>
-                                        [دسترسی به مه 2016]
+                                        <a
+                                            href={item.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {item.link}
+                                        </a>
+                                       {' '} [دسترسی به مه 2016]
                                     </p>
                                 </li>
                             ))}

@@ -175,9 +175,10 @@
             color: #287494;
             font-weight: 500;
             font-size: 18.5px;
+            margin-bottom: -10px;
         }
         p {
-            margin: 20px auto;
+            margin: 20px auto 30px;
             width: 60%;
             font-weight: 400;
             font-size: 13px;
@@ -199,7 +200,7 @@
             background-color: #00000000;
             font-weight: 600;
             line-height: 30px;
-            margin: 10px auto 30px;
+            margin: 10px auto;
             font-size: 12.5px;
             border: none;
             border-bottom: 7px solid #287494;
@@ -208,7 +209,7 @@
             transition: all 0.2s linear;
 
             &:hover {
-                margin: 7px auto 33px !important;
+                margin: 7px auto 13px !important;
                 border-bottom: 2px solid #287494;
                 color: #287494;
             }
