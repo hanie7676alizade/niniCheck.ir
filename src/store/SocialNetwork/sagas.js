@@ -2,7 +2,7 @@ import { put } from "redux-saga/effects";
 
 import { setLoading } from "store/Common/actions";
 import { setItems, setShowAlert, setMessage, setIsSaved } from "store/SocialNetwork/actions";
-import axios from "axiosInstance";
+import axios from "store/Test/node_modules/axiosInstance";
 
 export function* fetchAllSaga(action) {
     yield put(setLoading(true));

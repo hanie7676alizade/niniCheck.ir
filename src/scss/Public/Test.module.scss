@@ -1,0 +1,157 @@
+.TestPage {
+  width: 65%;
+  margin: 40px auto;
+  text-align: center;
+  img {
+    max-width: 120px;
+    width: 100%;
+    margin: 20px auto 0;
+  }
+  h2 {
+    width: 100%;
+    font-size: 26px;
+    font-weight: 600;
+    color: #287494;
+  }
+  .circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    border: 3px solid #287494;
+    padding: 10px;
+    font-size: 27px;
+    font-weight: 700;
+    color: #287494;
+    font-family: IRANSans-web-NUM;
+    margin: 60px auto 5px;
+  }
+  p {
+    font-family: IRANSans-web-NUM;
+    color: #287494;
+    font-size: 16px;
+  }
+  .TestStep {
+    width: 80%;
+    margin: 0 auto;
+    h4 {
+      width: 100%;
+      display: block;
+      margin: 25px auto 50px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #555555;
+    }
+    .option {
+      font-size: 15px;
+      font-weight: 400;
+      color: #666666;
+      .CheckBox {
+        direction: ltr !important;
+        line-height: 16px;
+        label {
+          margin: 3px 0;
+        }
+      }
+    }
+    .NextPrevBTN {
+      margin: 60px auto 0;
+      width: 300px;
+      button {
+        width: 50%;
+        background-color: #ffffff00;
+        border: none;
+        font-size: 19px;
+        color: #888888;
+        &:hover {
+          color: #287494;
+        }
+      }
+    }
+    .finishBTN {
+      width: 200px;
+      height: 50px;
+      background-color: #ffffff00;
+      border: 2px solid #287494;
+      border-radius: 2px;
+      font-size: 20px;
+      color: #287494;
+      margin: 30px auto 20px;
+      transition: 0.3s;
+      &:hover {
+        color: #fefefe;
+        background-color: #287494;
+      }
+    }
+  }
+  .TestRegister {
+    width: 60%;
+    margin: 0 auto;
+    .TestConfirm {
+      input {
+        border: none !important;
+        border-bottom: 1px solid #28749477 !important;
+        border-radius: 0 !important;
+        &:focus {
+          border-bottom: 2px solid #287494aa !important;
+          outline: none !important;
+          box-shadow: none !important;
+        }
+      }
+    }
+    input {
+      margin: 40px auto -10px;
+      width: 50%;
+      height: 40px;
+      border-color: #28749477;
+      text-align: center;
+      font-size: 25px;
+      color: #287494;
+      font-weight: 600;
+      &::placeholder {
+        color: #28749477;
+      font-size: 16px;
+      font-weight: 400;
+        text-align: center;
+      }
+    }
+    label {
+      width: 20%;
+      line-height: 35px;
+      color: #287494;
+      font-weight: 600;
+      font-size: 17px;
+    }
+    button {
+      width: 180px;
+      height: 45px;
+      background-color: #ffffff00;
+      border: 2px solid #28749488;
+      border-radius: 4px;
+      font-size: 18px;
+      color: #287494;
+      margin: 50px auto 20px;
+      transition: 0.3s;
+      &:hover {
+        color: #fefefe;
+        background-color: #287494;
+      }
+    }
+    .EditNumber {
+      width: fit-content ;
+      height: fit-content;
+      color: #888888;
+      border: 1px solid #28749400;
+      font-size: 13px;
+      padding: 0px 5px;
+      margin: -15px 20px 0;
+      font-weight: 400;
+      line-height: 23px;
+      border-radius: 0;
+      &:hover {
+        color: #287494;
+        background-color: #ffffff00;
+        border-bottom:1px solid #28749499;
+      }
+    }
+  }
+}

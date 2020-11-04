@@ -2,7 +2,7 @@ import { put } from "redux-saga/effects"
 import store, * as fromStore from "store/reducer"
 import { createBrowserHistory } from "history"
 
-import axios from "axiosInstance"
+import axios from "store/Test/node_modules/axiosInstance"
 import * as actions from "./actions"
 import { setLoading } from "../Common/actions"
 

@@ -123,15 +123,26 @@
             font-size: 15.2px;
             margin: 42px 0 35px;
         }
-        button {
+        a {
+            text-decoration: none;
             background-color: #287494;
-            width: 170px;
-            height: 46px;
-            border: none;
+            display: block;
+            width: 170px !important;
+            height: 46px !important;
+            line-height: 47px;
+            margin: 0 auto;
+            text-align: center;
+            border: 2px solid #28749400;
             border-radius: 1px;
             color: #f7f7f7;
             font-weight: 300;
             font-size: 18px;
+            transition: .3s;
+            &:hover{
+                color: #287494;
+              background-color: #fefefe;
+              border: 2px solid #287494;
+              }
         }
         .madImage {
             width: 200px;

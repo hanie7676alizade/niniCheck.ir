@@ -1,4 +1,4 @@
-import axios from "axiosInstance";
+import axios from "store/Test/node_modules/axiosInstance";
 import { put } from "redux-saga/effects";
 
 import * as actions from "./actions";

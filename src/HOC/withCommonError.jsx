@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import * as actions from "store/Common/actions";
 import * as authActions from "store/Auth/actions";
 import Alert from "components/UI/Alert/Alert"
-import axios from "axiosInstance";
+import axios from "store/Test/node_modules/axiosInstance";
 
 const withCommonError = (WrappedComponent) => {
     const Component = class extends React.Component {

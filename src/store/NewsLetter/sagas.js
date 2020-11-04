@@ -2,7 +2,7 @@ import { put } from "redux-saga/effects";
 
 import { setLoading } from "store/Common/actions";
 import { setShowAlert, isSaveEmail, setMessage, setMessageType } from "./actions";
-import axios from "axiosInstance";
+import axios from "store/Test/node_modules/axiosInstance";
 
 export function* saveSaga(action) {
     // console.log('newsletter befor saveSaga');
