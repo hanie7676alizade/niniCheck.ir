@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux";
 
 
-import axios from "store/Test/node_modules/axiosInstance";
+import axios from "axiosInstance";
 
 const withAuthorizationHeader = (WrappedComponent) => {
     const Component = class extends React.Component{

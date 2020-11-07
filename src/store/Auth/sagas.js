@@ -1,7 +1,7 @@
 import { put } from "redux-saga/effects";
 import moment from "moment";
 
-import axios from "store/Test/node_modules/axiosInstance";
+import axios from "axiosInstance";
 import * as actions from "./actions";
 
 export function* signupSaga(action) {

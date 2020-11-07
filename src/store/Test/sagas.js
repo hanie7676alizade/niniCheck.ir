@@ -1,7 +1,7 @@
 import { put } from "redux-saga/effects";
 
 import { setLoading } from "store/Common/actions";
-import { setConfig } from "store/Config/actions";
+// import { setConfig } from "store/Config/actions";
 import axios from "axiosInstance";
 
 export function* fetchConfigSaga(action) {

@@ -1,6 +1,6 @@
 import { put } from "redux-saga/effects";
 
-import axios from "store/Test/node_modules/axiosInstance";
+import axios from "axiosInstance";
 import * as actions from "./actions";
 import { setLoading } from "../Common/actions";
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Editor } from '@tinymce/tinymce-react';
 
-import axios from "store/Test/node_modules/axiosInstance";
+import axios from "axiosInstance";
 
 
 export const HTMLEditor = (props) => {

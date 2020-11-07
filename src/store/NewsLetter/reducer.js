@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import { updateObject } from "store/Test/node_modules/util/helpers";
+import { updateObject } from "util/helpers";
 
 const initialState = {
     message: "",
