@@ -9,11 +9,38 @@ import babyBoy from "../../../assets/images/icons/babyBoy.png"
 import babyGirl from "../../../assets/images/icons/babyGirl.png"
 import TestRegister from "containers/Public/Test/register"
 import TestStep from "containers/Public/Test/Step"
-import TestConfirm from     'containers/Public/Test/Confirm';
+import TestConfirm from "containers/Public/Test/Confirm"
+import { CSSTransition } from "react-transition-group"
 
 class Test extends Component {
     componentDidMount() {
         this.props.onChangeDocumentTitle("تست تشخیص جنسیت کودک ")
+    }
+    renderStepsComponent = () => {
+        switch (this.props.StepStore) {
+            case -1:
+                return <TestRegister />
+            case 0:
+                return <TestConfirm />
+            default:
+                return <TestStep Step={this.props.StepStore} />
+        }
+    }
+    handleStepNumber = () => {
+        switch (this.props.StepStore) {
+            case -1:
+                return "-"
+            case 0:
+                return "-"
+            default:
+                return this.props.StepStore
+        }
+    }
+    ChangeStep = {
+        enter: classes.enterChangeStep,
+        enterActive: classes.enterActiveChangeStep,
+        exit: classes.exitChangeStep,
+        exitActive: classes.exitActiveChangeStep
     }
     render() {
         return (
@@ -24,29 +51,32 @@ class Test extends Component {
                     </Col>
                     <Col lg={6}>
                         <h2>نی نی من دختره یا پسر؟</h2>
-                        <div className={classes.circle}>
-                            1
-                        </div>
-                        <p>
-                            از 28
-                        </p>
+                        <CSSTransition
+                            in={true}
+                            mountOnEnter
+                            unmountOnExit
+                            timeout={{ enter: 300, exit: 150 }}
+                        >
+                            <div className={classes.circle}>
+                                {this.handleStepNumber()}
+                            </div>
+                        </CSSTransition>
+                        <p>از 28</p>
                     </Col>
                     <Col lg={3}>
                         <img src={babyGirl} alt="babyGirl" />
                     </Col>
                 </Row>
-                <Row>
-                    {/* <TestStep/> */}
-                    {/* <TestRegister/> */}
-                    <TestConfirm/>
-                </Row>
+                <Row>{this.renderStepsComponent()}</Row>
             </div>
         )
     }
 }
 
 const mapStatesToProps = state => {
-    return {}
+    return {
+        StepStore: state.Test.step
+    }
 }
 
 const mapActionsToProps = dispatch => {

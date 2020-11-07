@@ -40,7 +40,6 @@ class Home extends React.Component {
     }
     componentDidMount() {
         this.props.onFrontSetRows(40)
-        console.log('onFrontSetRows(40)',this.props.WeekPosts);
         this.props.onFetch40Weeks("هفته-به-هفته")
     }
     componentDidUpdate() {

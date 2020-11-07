@@ -109,8 +109,8 @@
       font-weight: 600;
       &::placeholder {
         color: #28749477;
-      font-size: 16px;
-      font-weight: 400;
+        font-size: 16px;
+        font-weight: 400;
         text-align: center;
       }
     }
@@ -137,7 +137,7 @@
       }
     }
     .EditNumber {
-      width: fit-content ;
+      width: fit-content;
       height: fit-content;
       color: #888888;
       border: 1px solid #28749400;
@@ -150,8 +150,59 @@
       &:hover {
         color: #287494;
         background-color: #ffffff00;
-        border-bottom:1px solid #28749499;
+        border-bottom: 1px solid #28749499;
       }
+    }
+  }
+
+  //show about test source
+  .enterChangeStep {
+    position: relative;
+    top: 0;
+  }
+  .enterActiveChangeStep {
+    animation-name: ShowStep;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+  }
+  .exitChangeStep {
+    position: relative;
+    top: 0;
+  }
+  .exitActiveChangeStep {
+    animation-name: HideStep;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes ShowStep {
+    0% {
+      top: 0px;
+    }
+    40% {
+      top: 5px;
+    }
+    80% {
+      top: 10px;
+    }
+    100% {
+      top: 15px;
+    }
+  }
+  @keyframes HideStep {
+    100% {
+      top: 0px;
+    }
+    80% {
+      top: 5px;
+    }
+    40% {
+      top: 10px;
+    }
+    0% {
+      top: 15px;
     }
   }
 }
