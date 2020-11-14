@@ -6,22 +6,29 @@ export const setMobileNumber = (mobileNumber) => {
         mobileNumber
     }
 }
-export const setStep = (step) => {
+export const sendCode = (mobileNumber) => {//saga
     return {
-        type: actionTypes.TEST_SET_STEP,
-        step
-    }
-}
-export const saveMobileNumber = (mobileNumber) => {
-    return {
-        type: actionTypes.TEST_SAVE_MOBILE_NUMBER,
+        type: actionTypes.TEST_SEND_CODE,
         mobileNumber
     }
 }
-export const initiateFetchTest = code => {
+export const verifyCode = (mobileNumber, code) => {//saga
     return {
-        type: actionTypes.TEST_INITIATE_FETCH,
+        type: actionTypes.TEST_VERIFY_CODE,
+        mobileNumber,
         code
+    }
+}
+export const isVerified = data => {
+    return {
+        type: actionTypes.TEST_IS_VERIFIED,
+        data
+    }
+}
+export const FetchQuestion = mobileNumber => {//Saga
+    return {
+        type: actionTypes.TEST_FETCH_QUESTION,
+        mobileNumber
     }
 }
 export const setQuestion = (question) => {
@@ -30,9 +37,22 @@ export const setQuestion = (question) => {
         question,
     }
 }
+export const setStep = (step) => {
+    return {
+        type: actionTypes.TEST_SET_STEP,
+        step
+    }
+}
+//
 export const setLoading = (data) => {
     return {
         type: actionTypes.TEST_SET_LOADING,
+        data
+    }
+}
+export const setError = (data) => {
+    return {
+        type: actionTypes.TEST_SET_ERROR,
         data
     }
 }
@@ -48,9 +68,9 @@ export const setMessage = (data) => {
         data
     }
 }
-export const setIsSaved = (data) => {
+export const setMessageType = (data) => {
     return {
-        type: actionTypes.TEST_SET_IS_SAVED,
+        type: actionTypes.TEST_SET_MESSAGE_TYPE,
         data
     }
 }

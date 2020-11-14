@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import { Row, Col } from "react-bootstrap"
 
 import { setDocumentTitle } from "store/Common/actions"
-import withCommonError from "HOC/withCommonError"
 import classes from "scss/Public/Test.module.scss"
 import babyBoy from "../../../assets/images/icons/babyBoy.png"
 import babyGirl from "../../../assets/images/icons/babyGirl.png"
@@ -11,10 +10,25 @@ import TestRegister from "containers/Public/Test/register"
 import TestStep from "containers/Public/Test/Step"
 import TestConfirm from "containers/Public/Test/Confirm"
 import { CSSTransition } from "react-transition-group"
+import { setShowAlert, setMessage } from "store/Test/actions"
+import Alert from "components/UI/Alert/Alert"
 
 class Test extends Component {
+    internalAlert = null
+
     componentDidMount() {
         this.props.onChangeDocumentTitle("تست تشخیص جنسیت کودک ")
+    }
+    componentDidUpdate() {
+        if (this.props.showAlert) {
+            this.internalAlert = setInterval(() => {
+                if (this.props.showAlert) {
+                    this.props.onSetShowAlert(false)
+                }
+            }, 3500)
+        } else {
+            clearInterval(this.internalAlert)
+        }
     }
     renderStepsComponent = () => {
         switch (this.props.StepStore) {
@@ -43,8 +57,16 @@ class Test extends Component {
         exitActive: classes.exitActiveChangeStep
     }
     render() {
+        const alert = (
+            <Alert
+                type={this.props.messageType}
+                show={this.props.showAlert}
+                message={this.props.message}
+            />
+        )
         return (
             <div className={classes.TestPage}>
+                {alert}
                 <Row>
                     <Col lg={3}>
                         <img src={babyBoy} alt="babyBoy" />
@@ -72,20 +94,19 @@ class Test extends Component {
         )
     }
 }
-
 const mapStatesToProps = state => {
     return {
-        StepStore: state.Test.step
+        StepStore: state.Test.step,
+        message: state.Test.message,
+        showAlert: state.Test.showAlert,
+        messageType: state.Test.messageType
     }
 }
-
 const mapActionsToProps = dispatch => {
     return {
-        onChangeDocumentTitle: text => dispatch(setDocumentTitle(text))
+        onChangeDocumentTitle: text => dispatch(setDocumentTitle(text)),
+        onSetMessage: data => dispatch(setMessage(data)),
+        onSetShowAlert: data => dispatch(setShowAlert(data))
     }
 }
-
-export default connect(
-    mapStatesToProps,
-    mapActionsToProps
-)(withCommonError(Test))
+export default connect(mapStatesToProps, mapActionsToProps)(Test)

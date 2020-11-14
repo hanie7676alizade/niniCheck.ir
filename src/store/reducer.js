@@ -17,7 +17,7 @@ import { watchSocialNetwork } from "store/SocialNetwork/sagaWatcher";
 import { watchConfig } from "store/Config/sagaWatcher";
 import { watchPublicLayout } from "store/PublicLayout/sagaWatcher";
 import { watchNewsLetter } from "store/NewsLetter/sagaWatcher";
-// import { watchTest } from "store/Test/sagaWatcher";
+import { watchTest } from "store/Test/sagaWatcher";
 
 const rootReducer = combineReducers({
     Auth: authReducer,
@@ -54,6 +54,7 @@ sagaMiddleware.run(watchSocialNetwork);
 sagaMiddleware.run(watchConfig);
 sagaMiddleware.run(watchPublicLayout);
 sagaMiddleware.run(watchNewsLetter);
+sagaMiddleware.run(watchTest);
 
 export default store;
 

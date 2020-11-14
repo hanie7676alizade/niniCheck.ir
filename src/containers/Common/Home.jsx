@@ -97,8 +97,8 @@ const mapStatesToProps = state => {
 
 const mapActionsToProps = dispatch => {
     return {
-        onSetMessage: data => dispatch(setMessage(data)),
         onIsSaveEmail: data => dispatch(isSaveEmail(data)),
+        onSetMessage: data => dispatch(setMessage(data)),
         onSetShowAlert: data => dispatch(setShowAlert(data)),
         onFetch40Weeks: category => dispatch(frontFetchAll(category)), //هفته-به-هفته
         onFrontSetRows: data => dispatch(frontSetRows(data))

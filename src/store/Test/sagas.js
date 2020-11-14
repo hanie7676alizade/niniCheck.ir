@@ -1,29 +1,71 @@
 import { put } from "redux-saga/effects";
 
 import { setLoading } from "store/Common/actions";
-// import { setConfig } from "store/Config/actions";
+import { setStep, setMessage, setShowAlert, setMessageType, isVerified, setQuestion } from "store/Test/actions";
 import axios from "axiosInstance";
 
-export function* fetchConfigSaga(action) {
+export function* sendCodeSaga(action) {
     yield put(setLoading(true));
     try {
-        const response = yield axios.get(`admin/config/${action.section}`);
-        yield put(setConfig(response.data));
-        console.log(response.data, 'fetchConfigSaga');
+        const response = yield axios.post(`test/send-code`, { "mobile": action.mobileNumber });
+        console.log(response, 'sendCodeSaga');
+        yield put(setMessage('کد اعتبارسنجی پیامک شد'))
+        yield put(setMessageType('Success'))
+        yield put(setShowAlert(true));
+        yield put(setStep(0))
     } catch (err) {
-        console.log("sagaERR fetchConfigSaga", err.response);
+        console.log(err.response, 'err sendCodeSaga');
+        yield put(setMessage(err.response.data.bag[0]));
+        yield put(setMessageType('Warning'))
+        yield put(setShowAlert(true));
     } finally {
         yield put(setLoading(false));
     }
 }
 
-export function* saveConfigSaga(action) {
+export function* VerifyCodeSaga(action) {
     yield put(setLoading(true));
     try {
-        yield axios.post('admin/config', { config: action.data });
+        const response = yield axios.post(`test/verify-code`, { "mobile": action.mobileNumber, 'code': action.code });
+        console.log(response, 'VerifyCodeSaga');
+        if (response.status === 200) {
+            yield put(isVerified(true))
+            yield put(setStep(1))
+        }
+    } catch (err) {
+        console.log(err.response, 'err VerifyCodeSaga');
+        yield put(setMessage(err.response.data.bag[0]));
+        yield put(setMessageType('Warning'))
+        yield put(setShowAlert(true));
+    } finally {
+        yield put(setLoading(false));
+    }
+}
+
+export function* fetchQuestionSaga(action) {
+    yield put(setLoading(true));
+    try {
+        const response = yield axios.post(`test/questions`, { "mobile": action.mobileNumber });
+        yield put(setQuestion(response.data))
+        console.log(response.data, 'fetchQuestionSaga');
+    } catch (err) {
+            yield put(setStep(-1))
+            yield put(setMessageType('Warning'))
+            yield put(setShowAlert(true));
+            yield put(setMessage('لطفا دوباره تلاش کنید'));
+            console.log("sagaERR fetchQuestionSaga", err.response);
+    } finally {
+        yield put(setLoading(false));
+    }
+}
+
+export function* saveTestSaga(action) {
+    yield put(setLoading(true));
+    try {
+        yield axios.post('admin/Test', { Test: action.data });
 
     } catch (err) {
-        console.log("sagaERR saveConfigSaga", err.response);
+        console.log("sagaERR saveTestSaga", err.response);
     } finally {
         yield put(setLoading(false));
     }
