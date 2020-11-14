@@ -12,6 +12,7 @@ import TestConfirm from "containers/Public/Test/Confirm"
 import { CSSTransition } from "react-transition-group"
 import { setShowAlert, setMessage } from "store/Test/actions"
 import Alert from "components/UI/Alert/Alert"
+import EndTest from "containers/Public/Test/EndTest/Index"
 
 class Test extends Component {
     internalAlert = null
@@ -31,13 +32,18 @@ class Test extends Component {
         }
     }
     renderStepsComponent = () => {
-        switch (this.props.StepStore) {
-            case -1:
-                return <TestRegister />
-            case 0:
-                return <TestConfirm />
-            default:
-                return <TestStep Step={this.props.StepStore} />
+        if (this.props.StepStore === -1) {
+            return <TestRegister />
+        } else if (this.props.StepStore === 0) {
+            return <TestConfirm />
+        } else if (this.props.StepStore > 0) {
+            if (
+                this.props.StepStore > this.props.questionStore.length &&
+                this.props.questionStore.length > 1
+            ) {
+                return <EndTest />
+            }
+            return <TestStep />
         }
     }
     handleStepNumber = () => {
@@ -49,12 +55,6 @@ class Test extends Component {
             default:
                 return this.props.StepStore
         }
-    }
-    ChangeStep = {
-        enter: classes.enterChangeStep,
-        enterActive: classes.enterActiveChangeStep,
-        exit: classes.exitChangeStep,
-        exitActive: classes.exitActiveChangeStep
     }
     render() {
         const alert = (
@@ -73,17 +73,17 @@ class Test extends Component {
                     </Col>
                     <Col lg={6}>
                         <h2>نی نی من دختره یا پسر؟</h2>
-                        <CSSTransition
-                            in={true}
-                            mountOnEnter
-                            unmountOnExit
-                            timeout={{ enter: 300, exit: 150 }}
-                        >
+                        {this.props.questionStore.length > 0 ? (
                             <div className={classes.circle}>
                                 {this.handleStepNumber()}
                             </div>
-                        </CSSTransition>
-                        <p>از 28</p>
+                        ) : null}
+                        {this.props.questionStore.length === 0 ? null : (
+                            <p>
+                                از
+                                {this.props.questionStore.length}
+                            </p>
+                        )}
                     </Col>
                     <Col lg={3}>
                         <img src={babyGirl} alt="babyGirl" />
@@ -99,6 +99,7 @@ const mapStatesToProps = state => {
         StepStore: state.Test.step,
         message: state.Test.message,
         showAlert: state.Test.showAlert,
+        questionStore: state.Test.question,
         messageType: state.Test.messageType
     }
 }

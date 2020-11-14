@@ -15,7 +15,7 @@ export function* sendCodeSaga(action) {
         yield put(setStep(0))
     } catch (err) {
         console.log(err.response, 'err sendCodeSaga');
-        yield put(setMessage(err.response.data.bag[0]));
+        yield put(setMessage(err.response.data.mobile));
         yield put(setMessageType('Warning'))
         yield put(setShowAlert(true));
     } finally {
@@ -34,7 +34,7 @@ export function* VerifyCodeSaga(action) {
         }
     } catch (err) {
         console.log(err.response, 'err VerifyCodeSaga');
-        yield put(setMessage(err.response.data.bag[0]));
+        yield put(setMessage(err.response.data.code));
         yield put(setMessageType('Warning'))
         yield put(setShowAlert(true));
     } finally {
@@ -60,13 +60,16 @@ export function* fetchQuestionSaga(action) {
 }
 
 export function* saveAnswerSaga(action) {
-    console.log(action,'saaaaaaaaveeeeeeee');
+    console.log(action, 'saaaaaaaaveeeeeeee');
     yield put(setLoading(true));
     try {
         const response = yield axios.post(`test/answer`, { "mobile": action.mobileNumber, "question_id": action.question_id, "answer_id": action.answer_id });
         console.log(response.data, 'saveAnswerSaga');
     } catch (err) {
         console.log("sagaERR saveAnswerSaga", err.response);
+        yield put(setMessageType('Warning'))
+        yield put(setShowAlert(true));
+        yield put(setMessage(err.response.data.answer_id));
     } finally {
         yield put(setLoading(false));
     }
