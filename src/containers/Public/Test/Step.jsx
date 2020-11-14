@@ -3,24 +3,49 @@ import { connect } from "react-redux"
 import { Row, Col, Form } from "react-bootstrap"
 
 import classes from "scss/Public/Test.module.scss"
-import { setStep, FetchQuestion } from "store/Test/actions"
+import {
+    setStep,
+    FetchQuestion,
+    setAnswer,
+    saveAnswer
+} from "store/Test/actions"
+import { useState } from "react"
 
 const TestStep = props => {
+    // let oldAnswerStore = [...props.answerStore]
+    const [answerId, setanswerId] = useState(null)
+    const currentQuestion = props.questionStore[props.stepStore - 1]
+    const setArrayAnswer = (id) => {
+        // let changedAnswer
+        // let newAnswersArray
+        setanswerId(id)
+        props.onSetAnswer([
+            {
+                question_id: currentQuestion.id,
+                answer_id: id
+            }
+        ])
+    }
     useEffect(() => {
         if (!!props.isVerifiedStore) {
             props.onFetchQuestion(props.mobileNumberStore)
         }
     }, [])
     const NextStep = () => {
+        console.log( props.mobileNumberStore,
+            currentQuestion.id,
+            answerId,'OnsaveAnswerrrrrrrrrrrrrrrr ');
+        props.onSaveAnswer(
+            props.mobileNumberStore,
+             currentQuestion.id,
+             answerId
+        )
         props.onSetStep(props.Step + 1)
     }
     const PrevStep = () => {
         props.onSetStep(props.Step - 1)
     }
-    const currentQuestion = props.questionStore[props.stepStore - 1]
-    const setArrayAnswer=(item)=>{
-        
-    }
+    console.log(currentQuestion, "currentQuestion", answerId, "answerId")
     if (props.questionStore.length) {
         return (
             <div className={classes.TestStep}>
@@ -30,7 +55,7 @@ const TestStep = props => {
                 <Form.Group as={Row}>
                     {JSON.parse(currentQuestion.options).map((item, index) => {
                         return (
-                            <Col className={classes.option}>
+                            <Col className={classes.option} key={`${currentQuestion.id}${index+1}`}>
                                 <Form.Check
                                     className={classes.CheckBox}
                                     type="radio"
@@ -38,7 +63,9 @@ const TestStep = props => {
                                     custom
                                     name="formHorizontalRadios"
                                     id={index + 1}
-                                    onClick={(item)=>setArrayAnswer(item)}
+                                    onClick={(e) =>
+                                        setArrayAnswer(e.target.id)
+                                    }
                                 />
                             </Col>
                         )
@@ -80,13 +107,16 @@ const mapStatesToProps = state => {
         isVerifiedStore: state.Test.isVerified,
         mobileNumberStore: state.Test.mobileNumber,
         stepStore: state.Test.step,
-        questionStore: state.Test.question
+        questionStore: state.Test.question,
+        answerStore: state.Test.answer
     }
 }
 const mapActionToProps = dispatch => {
     return {
         onSetStep: step => dispatch(setStep(step)),
-        onFetchQuestion: mobileNumber => dispatch(FetchQuestion(mobileNumber))
+        onFetchQuestion: mobileNumber => dispatch(FetchQuestion(mobileNumber)),
+        onSetAnswer: answers => dispatch(setAnswer(answers)),
+        onSaveAnswer: (mobileNumber, question_id, answer_id) => dispatch(saveAnswer(mobileNumber, question_id, answer_id))
     }
 }
 export default connect(mapStatesToProps, mapActionToProps)(TestStep)

@@ -43,6 +43,20 @@ export const setStep = (step) => {
         step
     }
 }
+export const setAnswer = (answers) => {
+    return {
+        type: actionTypes.TEST_SET_ANSWER,
+        answers
+    }
+}
+export const saveAnswer = (mobileNumber, question_id, answer_id) => {
+    return {
+        type: actionTypes.TEST_SAVE_ANSWER,
+        mobileNumber,
+        question_id,
+        answer_id
+    }
+}
 //
 export const setLoading = (data) => {
     return {

@@ -49,24 +49,26 @@ export function* fetchQuestionSaga(action) {
         yield put(setQuestion(response.data))
         console.log(response.data, 'fetchQuestionSaga');
     } catch (err) {
-            yield put(setStep(-1))
-            yield put(setMessageType('Warning'))
-            yield put(setShowAlert(true));
-            yield put(setMessage('لطفا دوباره تلاش کنید'));
-            console.log("sagaERR fetchQuestionSaga", err.response);
+        yield put(setStep(-1))
+        yield put(setMessageType('Warning'))
+        yield put(setShowAlert(true));
+        yield put(setMessage('لطفا دوباره تلاش کنید'));
+        console.log("sagaERR fetchQuestionSaga", err.response);
     } finally {
         yield put(setLoading(false));
     }
 }
 
-export function* saveTestSaga(action) {
+export function* saveAnswerSaga(action) {
+    console.log(action,'saaaaaaaaveeeeeeee');
     yield put(setLoading(true));
     try {
-        yield axios.post('admin/Test', { Test: action.data });
-
+        const response = yield axios.post(`test/answer`, { "mobile": action.mobileNumber, "question_id": action.question_id, "answer_id": action.answer_id });
+        console.log(response.data, 'saveAnswerSaga');
     } catch (err) {
-        console.log("sagaERR saveTestSaga", err.response);
+        console.log("sagaERR saveAnswerSaga", err.response);
     } finally {
         yield put(setLoading(false));
     }
 }
+

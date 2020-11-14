@@ -24,6 +24,8 @@ const reducer = (state = initialState, action) => {
             return updateObject(state, { isVerified: action.data })
         case actionTypes.TEST_SET_QUESTION:
             return updateObject(state, { question: action.question })
+        case actionTypes.TEST_SET_ANSWER:
+            return updateObject(state, { answers: action.answer })
         case actionTypes.TEST_SET_LOADING:
             return updateObject(state, { loading: action.data })
         case actionTypes.TEST_SET_SHOW_ALERT:
