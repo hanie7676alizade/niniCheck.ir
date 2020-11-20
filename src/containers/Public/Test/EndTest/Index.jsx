@@ -8,12 +8,6 @@ import classes from "scss/Public/Test.module.scss"
 
 const QuestionSAndAnswers = props => {
     const [ShowDescription, setShowDescription] = useState(false)
-    const classNameArrowPosition = {
-        enter: classes.enterArrowPosition,
-        enterActive: classes.enterActiveArrowPosition,
-        exit: classes.exitArrowPosition,
-        exitActive: classes.exitActiveArrowPosition
-    }
     const classNameShowDescription = {
         enter: classes.enterShowDescription,
         enterActive: classes.enterActiveShowDescription,
@@ -50,7 +44,6 @@ const QuestionSAndAnswers = props => {
                     mountOnEnter
                     unmountOnExit
                     timeout={300}
-                    key={index}
                 >
                     <div>
                         <div className={classes.answer}>

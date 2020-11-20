@@ -7,45 +7,62 @@ import {
     setStep,
     FetchQuestion,
     setAnswer,
+    setFemaleProbability,
+    setMaleProbability,
     saveAnswer
 } from "store/Test/actions"
 
 const TestStep = props => {
-    const oldAnswers = props.answerStore
-    var answerId = null
     const currentQuestion = props.questionStore[props.stepStore - 1]
+    var oldAnswers = props.answerStore
+    const questionOptions = currentQuestion
+        ? JSON.parse(currentQuestion.options)
+        : null
+
     const setArrayAnswer = e => {
-        answerId = e.target.id
-        console.log(e.target.id, "in onSetArrayAnswer")
-        oldAnswers.push({
-            question_id: currentQuestion.id,
-            answer_id: e.target.id
-        })
+        var changedAnswer = props.answerStore.filter(
+            item => item.question_id != currentQuestion.id
+        )
+        oldAnswers = [
+            ...changedAnswer,
+            {
+                question_id: currentQuestion.id,
+                answer_id: e.target.id,
+                probability: questionOptions[e.target.id - 1].probability
+            }
+        ]
         props.onSetAnswer(oldAnswers)
     }
+
     useEffect(() => {
         if (!!props.isVerifiedStore) {
             props.onFetchQuestion(props.mobileNumberStore)
         }
     }, [])
+
     const NextStep = () => {
-        props.onSaveAnswer(
-            props.mobileNumberStore,
-            currentQuestion.id,
-            answerId
-        )
+        console.log("To Step>>>>", props.stepStore + 1)
         var customerAnswer = oldAnswers.filter(
             item => item.question_id == currentQuestion.id
-        )
-        console.log('To Step>>>>', props.stepStore + 1);
-        if (customerAnswer.length !== 0) {
-            props.onSetStep(props.stepStore + 1)
+            )
+        if (customerAnswer.length !== 0) { //if option is seleted
+                props.onSaveAnswer(//save answer in dataBase
+                    props.mobileNumberStore,
+                    currentQuestion.id,
+                    customerAnswer[0].answer_id
+                )
+            props.onSetStep(props.stepStore + 1) //next Step
         }
     }
+
     const PrevStep = () => {
-        props.onSetStep(props.Step - 1)
+        props.onSetStep(props.stepStore - 1)
     }
-    console.log(props.questionStore.length,props.questionStore,'props.questionStore')
+    console.log(
+        props.questionStore.length,
+        props.questionStore,
+        "props.questionStore"
+    )
     if (props.questionStore.length) {
         return (
             <div className={classes.TestStep}>
@@ -53,7 +70,7 @@ const TestStep = props => {
                     <h4>{currentQuestion.question}</h4>
                 </Row>
                 <Form.Group as={Row}>
-                    {JSON.parse(currentQuestion.options).map((item, index) => {
+                    {questionOptions.map((item, index) => {
                         return (
                             <Col
                                 className={classes.option}
@@ -80,7 +97,7 @@ const TestStep = props => {
                             onClick={e => NextStep(e)}
                         >
                             {props.stepStore === props.questionStore.length
-                                ? "مشاهده تست"
+                                ? "مشاهده نتیجه تست"
                                 : "بعدی"}
                         </button>
                         {props.stepStore === 1 ? null : (
@@ -116,7 +133,9 @@ const mapStatesToProps = state => {
         mobileNumberStore: state.Test.mobileNumber,
         stepStore: state.Test.step,
         questionStore: state.Test.question,
-        answerStore: state.Test.answers
+        answerStore: state.Test.answers,
+        femaleStore: state.Test.female,
+        maleStore: state.Test.male
     }
 }
 const mapActionToProps = dispatch => {

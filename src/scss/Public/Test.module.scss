@@ -232,7 +232,7 @@
           height: 0px;
         }
         90% {
-          height: 150px;
+          height: 200px;
         }
         100% {
           height: auto;
@@ -245,15 +245,15 @@
         animation-fill-mode: forwards;
       }
       .exitShowDescription {
-        height: 0;
+        height: auto;
         overflow: hidden;
       }
       @keyframes FadeDescription {
         0% {
-          height: 100px;
+          height: auto;
         }
         50% {
-          height: 50px;
+          height: 150px;
         }
         90% {
           height: 10px;

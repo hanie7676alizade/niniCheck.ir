@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import { Row, Col } from "react-bootstrap"
 
+import WithLoading from "HOC/WithLoading"
 import { setDocumentTitle } from "store/Common/actions"
 import classes from "scss/Public/Test.module.scss"
 import babyBoy from "../../../assets/images/icons/babyBoy.png"
@@ -9,7 +10,6 @@ import babyGirl from "../../../assets/images/icons/babyGirl.png"
 import TestRegister from "containers/Public/Test/register"
 import TestStep from "containers/Public/Test/Step"
 import TestConfirm from "containers/Public/Test/Confirm"
-import { CSSTransition } from "react-transition-group"
 import { setShowAlert, setMessage } from "store/Test/actions"
 import Alert from "components/UI/Alert/Alert"
 import EndTest from "containers/Public/Test/EndTest/Index"
@@ -65,32 +65,34 @@ class Test extends Component {
             />
         )
         return (
-            <div className={classes.TestPage}>
-                {alert}
-                <Row>
-                    <Col lg={3}>
-                        <img src={babyBoy} alt="babyBoy" />
-                    </Col>
-                    <Col lg={6}>
-                        <h2>نی نی من دختره یا پسر؟</h2>
-                        {this.props.questionStore.length > 0 ? (
-                            <div className={classes.circle}>
-                                {this.handleStepNumber()}
-                            </div>
-                        ) : null}
-                        {this.props.questionStore.length === 0 ? null : (
-                            <p>
-                                از
-                                {this.props.questionStore.length}
-                            </p>
-                        )}
-                    </Col>
-                    <Col lg={3}>
-                        <img src={babyGirl} alt="babyGirl" />
-                    </Col>
-                </Row>
-                <Row>{this.renderStepsComponent()}</Row>
-            </div>
+            <WithLoading>
+                <div className={classes.TestPage}>
+                    {alert}
+                    <Row>
+                        <Col lg={3}>
+                            <img src={babyBoy} alt="babyBoy" />
+                        </Col>
+                        <Col lg={6}>
+                            <h2>نی نی من دختره یا پسر؟</h2>
+                            {this.props.questionStore.length > 0 ? (
+                                <div className={classes.circle}>
+                                    {this.handleStepNumber()}
+                                </div>
+                            ) : null}
+                            {this.props.questionStore.length === 0 ? null : (
+                                <p>
+                                    از
+                                    {this.props.questionStore.length}
+                                </p>
+                            )}
+                        </Col>
+                        <Col lg={3}>
+                            <img src={babyGirl} alt="babyGirl" />
+                        </Col>
+                    </Row>
+                    <Row>{this.renderStepsComponent()}</Row>
+                </div>
+            </WithLoading>
         )
     }
 }

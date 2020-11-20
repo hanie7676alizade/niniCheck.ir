@@ -11,6 +11,8 @@ const initialState = {
     step: -1,
     isVerified: false,
     answers: [],
+    female: 0,
+    male: 0,
 }
 
 const reducer = (state = initialState, action) => {
@@ -24,6 +26,10 @@ const reducer = (state = initialState, action) => {
             return updateObject(state, { isVerified: action.data })
         case actionTypes.TEST_SET_QUESTION:
             return updateObject(state, { question: action.question })
+        case actionTypes.TEST_SET_FEMALE:
+            return updateObject(state, { female: action.data })
+        case actionTypes.TEST_SET_MALE:
+            return updateObject(state, { male: action.data})
         case actionTypes.TEST_SET_ANSWER:
             return updateObject(state, { answers: action.answers })
         case actionTypes.TEST_SET_LOADING:

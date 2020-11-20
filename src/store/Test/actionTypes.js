@@ -12,6 +12,10 @@ export const TEST_SET_STEP = "TEST_SET_STEP";
 
 export const TEST_SET_QUESTION = "TEST_SET_QUESTION";
 
+export const TEST_SET_FEMALE = "TEST_SET_FEMALE";
+
+export const TEST_SET_MALE = "TEST_SET_MALE";
+
 export const TEST_SET_ANSWER = "TEST_SET_ANSWER";
 
 export const TEST_SAVE_ANSWER = "TEST_SAVE_ANSWER";

@@ -43,13 +43,25 @@ export const setStep = (step) => {
         step
     }
 }
+export const setFemaleProbability = (data) => {
+    return {
+        type: actionTypes.TEST_SET_FEMALE,
+        data
+    }
+}
+export const setMaleProbability = (data) => {
+    return {
+        type: actionTypes.TEST_SET_MALE,
+        data
+    }
+}
 export const setAnswer = (answers) => {
     return {
         type: actionTypes.TEST_SET_ANSWER,
         answers
     }
 }
-export const saveAnswer = (mobileNumber, question_id, answer_id) => {
+export const saveAnswer = (mobileNumber, question_id, answer_id) => {//Saga
     return {
         type: actionTypes.TEST_SAVE_ANSWER,
         mobileNumber,
