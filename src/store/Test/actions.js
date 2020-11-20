@@ -69,6 +69,12 @@ export const saveAnswer = (mobileNumber, question_id, answer_id) => {//Saga
         answer_id
     }
 }
+export const setShowModal = (data) => {
+    return {
+        type: actionTypes.TEST_SET_SHOW_MODAL,
+        data
+    }
+}
 //
 export const setLoading = (data) => {
     return {

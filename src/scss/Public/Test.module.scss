@@ -1,8 +1,37 @@
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #00000057;
+  z-index: 150;
+  margin: -110px 0 0;
+
+  .Modal {
+    width: 85%;
+    margin: 30px 7.5%;
+    position: fixed;
+    z-index: 200;
+    background-color: #f9f9f9;
+    padding: 30px 0;
+    border-radius: 5px;
+    .sidesContainer {
+      width: 50%;
+      margin: 0;
+      float: right;
+      .imgBaby {
+        width: 80% !important;
+        margin: 20px 10%;
+        border-radius: 5px;
+      }
+    }
+  }
+}
 .TestPage {
-  width: 65%;
-  margin: 40px auto 0;
+  width: 70%;
+  margin: 0px auto 0;
+  padding-top: 40px;
   text-align: center;
-  img {
+  .babyIcon {
     max-width: 120px;
     width: 100%;
     margin: 20px auto 0;
@@ -155,114 +184,117 @@
       }
     }
   }
-  .QuestionSAndAnswers {
-    width: 70%;
+  .TestEndStep {
+    width: 100%;
     margin: 0 auto;
-    p {
-      text-align: right;
-      height: 30px;
-      font-size: 18px;
-    }
-    .question {
-      width: 100%;
-      height: auto;
-      margin: 0px auto 35px;
-      .questionText {
+    .QuestionSAndAnswers {
+      width: 70%;
+      margin: 0 auto;
+      p {
+        text-align: right;
+        height: 30px;
+        font-size: 18px;
+      }
+      .question {
         width: 100%;
         height: auto;
-        font-weight: 700;
-        line-height: 30px;
-        margin: 0 0 20px;
-        cursor: pointer;
-        .arrowIcon{
-          margin:-25px 10px -4px;
-          transition: .4s;
-          &.arrowIconLeft{
-            position: relative;
-            transform: rotateZ(0);
-          }
-          &.arrowIconDown{
-            position: relative;
-            transform: rotateZ(-90deg);
-          }
-        }
-      }
-      .answer {
-        width: 90%;
-        margin: 0px auto 20px;
-        p {
-          font-size: 17px;
+        margin: 0px auto 35px;
+        .questionText {
           width: 100%;
-        }
-      }
-      .description {
-        width: 90%;
-        margin: 0 auto;
-        border: 1px solid #2874943d;
-        border-radius: 20px;
-        span {
-          font-weight: 500;
-          font-size: 16px;
-          color: #777777;
-          width: fit-content;
-          display: block;
-          padding: 10px;
-        }
-        p {
-          font-size: 15px;
-          padding: 5px;
-          width: 100%;
-          font-weight: 400;
-          color: #999999;
-        }
-      }
-      //show Description
-      .enterShowDescription {
-        height: 0;
-        overflow: hidden;
-      }
-      .enterActiveShowDescription {
-        animation-name: ShowDescription;
-        animation-duration: 0.4s;
-        animation-timing-function: ease-in;
-        animation-fill-mode: forwards;
-      }
-      @keyframes ShowDescription {
-        0% {
-          height: 0px;
-        }
-        90% {
-          height: 200px;
-        }
-        100% {
           height: auto;
+          font-weight: 700;
+          line-height: 30px;
+          margin: 0 0 20px;
+          cursor: pointer;
+          .arrowIcon {
+            margin: -25px 10px -4px;
+            transition: 0.4s;
+            &.arrowIconLeft {
+              position: relative;
+              transform: rotateZ(0);
+            }
+            &.arrowIconDown {
+              position: relative;
+              transform: rotateZ(-90deg);
+            }
+          }
         }
-      }
-      .exitActiveShowDescription {
-        animation-name: FadeDescription;
-        animation-duration: 0.3s;
-        animation-timing-function: ease-in;
-        animation-fill-mode: forwards;
-      }
-      .exitShowDescription {
-        height: auto;
-        overflow: hidden;
-      }
-      @keyframes FadeDescription {
-        0% {
+        .answer {
+          width: 90%;
+          margin: 0px auto 20px;
+          p {
+            font-size: 17px;
+            width: 100%;
+          }
+        }
+        .description {
+          width: 90%;
+          margin: 0 auto;
+          border: 1px solid #2874943d;
+          border-radius: 20px;
+          span {
+            font-weight: 500;
+            font-size: 16px;
+            color: #777777;
+            width: fit-content;
+            display: block;
+            padding: 10px;
+          }
+          p {
+            font-size: 15px;
+            padding: 5px;
+            width: 100%;
+            font-weight: 400;
+            color: #999999;
+          }
+        }
+        //show Description
+        .enterShowDescription {
+          height: 0;
+          overflow: hidden;
+        }
+        .enterActiveShowDescription {
+          animation-name: ShowDescription;
+          animation-duration: 0.4s;
+          animation-timing-function: ease-in;
+          animation-fill-mode: forwards;
+        }
+        @keyframes ShowDescription {
+          0% {
+            height: 0px;
+          }
+          90% {
+            height: 200px;
+          }
+          100% {
+            height: auto;
+          }
+        }
+        .exitActiveShowDescription {
+          animation-name: FadeDescription;
+          animation-duration: 0.3s;
+          animation-timing-function: ease-in;
+          animation-fill-mode: forwards;
+        }
+        .exitShowDescription {
           height: auto;
+          overflow: hidden;
         }
-        50% {
-          height: 150px;
-        }
-        90% {
-          height: 10px;
-        }
-        100% {
-          height: 0px;
+        @keyframes FadeDescription {
+          0% {
+            height: auto;
+          }
+          50% {
+            height: 150px;
+          }
+          90% {
+            height: 10px;
+          }
+          100% {
+            height: 0px;
+          }
         }
       }
     }
   }
-
 }

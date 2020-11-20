@@ -13,6 +13,7 @@ const initialState = {
     answers: [],
     female: 0,
     male: 0,
+    showModal: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -29,9 +30,11 @@ const reducer = (state = initialState, action) => {
         case actionTypes.TEST_SET_FEMALE:
             return updateObject(state, { female: action.data })
         case actionTypes.TEST_SET_MALE:
-            return updateObject(state, { male: action.data})
+            return updateObject(state, { male: action.data })
         case actionTypes.TEST_SET_ANSWER:
             return updateObject(state, { answers: action.answers })
+        case actionTypes.TEST_SET_SHOW_MODAL:
+            return updateObject(state, { showModal: action.data })
         case actionTypes.TEST_SET_LOADING:
             return updateObject(state, { loading: action.data })
         case actionTypes.TEST_SET_SHOW_ALERT:

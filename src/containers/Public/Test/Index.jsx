@@ -5,6 +5,8 @@ import { Row, Col } from "react-bootstrap"
 import WithLoading from "HOC/WithLoading"
 import { setDocumentTitle } from "store/Common/actions"
 import classes from "scss/Public/Test.module.scss"
+import babySon from "assets/images/baby-is-son.jpg"
+import babyDaughter from "assets/images/baby-is-daughter.jpg"
 import babyBoy from "../../../assets/images/icons/babyBoy.png"
 import babyGirl from "../../../assets/images/icons/babyGirl.png"
 import TestRegister from "containers/Public/Test/register"
@@ -16,7 +18,6 @@ import EndTest from "containers/Public/Test/EndTest/Index"
 
 class Test extends Component {
     internalAlert = null
-
     componentDidMount() {
         this.props.onChangeDocumentTitle("تست تشخیص جنسیت کودک ")
     }
@@ -56,6 +57,22 @@ class Test extends Component {
                 return this.props.StepStore
         }
     }
+    onShowModal = () => {
+        return (
+            <div className={classes.mask}>
+                <div className={classes.Modal}>
+                    <div className={classes.sidesContainer}>
+                        <img
+                            src={babyDaughter}
+                            className={classes.imgBaby}
+                            alt={`daughter`}
+                        />
+                    </div>
+                    <div className={classes.sidesContainer}>fdf;d;</div>
+                </div>
+            </div>
+        )
+    }
     render() {
         const alert = (
             <Alert
@@ -66,11 +83,17 @@ class Test extends Component {
         )
         return (
             <WithLoading>
+                {this.props.showModal ? this.onShowModal() : null}
+
                 <div className={classes.TestPage}>
                     {alert}
                     <Row>
                         <Col lg={3}>
-                            <img src={babyBoy} alt="babyBoy" />
+                            <img
+                                className={classes.babyIcon}
+                                src={babyBoy}
+                                alt="babyBoy"
+                            />
                         </Col>
                         <Col lg={6}>
                             <h2>نی نی من دختره یا پسر؟</h2>
@@ -87,7 +110,11 @@ class Test extends Component {
                             )}
                         </Col>
                         <Col lg={3}>
-                            <img src={babyGirl} alt="babyGirl" />
+                            <img
+                                className={classes.babyIcon}
+                                src={babyGirl}
+                                alt="babyGirl"
+                            />
                         </Col>
                     </Row>
                     <Row>{this.renderStepsComponent()}</Row>
@@ -102,7 +129,8 @@ const mapStatesToProps = state => {
         message: state.Test.message,
         showAlert: state.Test.showAlert,
         questionStore: state.Test.question,
-        messageType: state.Test.messageType
+        messageType: state.Test.messageType,
+        showModal: state.Test.showModal
     }
 }
 const mapActionsToProps = dispatch => {
