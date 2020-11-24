@@ -43,15 +43,9 @@ export const setStep = (step) => {
         step
     }
 }
-export const setFemaleProbability = (data) => {
+export const setProbability = (data) => {
     return {
-        type: actionTypes.TEST_SET_FEMALE,
-        data
-    }
-}
-export const setMaleProbability = (data) => {
-    return {
-        type: actionTypes.TEST_SET_MALE,
+        type: actionTypes.TEST_SET_PROBABILITY,
         data
     }
 }

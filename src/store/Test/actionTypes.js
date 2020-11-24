@@ -12,9 +12,7 @@ export const TEST_SET_STEP = "TEST_SET_STEP";
 
 export const TEST_SET_QUESTION = "TEST_SET_QUESTION";
 
-export const TEST_SET_FEMALE = "TEST_SET_FEMALE";
-
-export const TEST_SET_MALE = "TEST_SET_MALE";
+export const TEST_SET_PROBABILITY = "TEST_SET_PROBABILITY";
 
 export const TEST_SET_ANSWER = "TEST_SET_ANSWER";
 

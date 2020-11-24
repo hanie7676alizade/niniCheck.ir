@@ -178,8 +178,24 @@ textarea.form-control.is-invalid {
   border-color: #287494;
 }
 
-.bgRed{
+.bgRed {
   background-color: red;
   width: fit-content !important;
   display: block;
+}
+
+//Test Page SocialNetWork
+.Instagram {
+  background: rgb(98, 0, 255);
+  background: linear-gradient(90deg, rgba(98, 0, 255, 1) 0%, rgba(255, 0, 91, 1) 100%);
+}
+
+.Email {
+  background-color: #e06a1c !important;
+}
+.Telegram{
+  background-color: #3b7cff !important;
+}
+.WhatsApp{
+  background-color: #55d144;
 }

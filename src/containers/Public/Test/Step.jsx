@@ -9,7 +9,10 @@ import {
     setAnswer,
     setFemaleProbability,
     setMaleProbability,
-    saveAnswer
+    saveAnswer,
+    setMessageType,
+    setMessage,
+    setShowAlert
 } from "store/Test/actions"
 
 const TestStep = props => {
@@ -44,14 +47,19 @@ const TestStep = props => {
         console.log("To Step>>>>", props.stepStore + 1)
         var customerAnswer = oldAnswers.filter(
             item => item.question_id == currentQuestion.id
+        )
+        if (customerAnswer.length !== 0) {
+            //if option is seleted => save answer in dataBase
+            props.onSaveAnswer(
+                props.mobileNumberStore,
+                currentQuestion.id,
+                customerAnswer[0].answer_id
             )
-        if (customerAnswer.length !== 0) { //if option is seleted
-                props.onSaveAnswer(//save answer in dataBase
-                    props.mobileNumberStore,
-                    currentQuestion.id,
-                    customerAnswer[0].answer_id
-                )
             props.onSetStep(props.stepStore + 1) //next Step
+        } else {
+            props.onSetMessageType("Warning")
+            props.onSetShowAlert(true)
+            props.onSetMessage(`پاسخی انتخاب نشده`)
         }
     }
 
@@ -65,7 +73,7 @@ const TestStep = props => {
     )
     if (props.questionStore.length) {
         return (
-            <div className={classes.TestStep}>
+            <Col className={classes.TestStep}>
                 <Row>
                     <h4>{currentQuestion.question}</h4>
                 </Row>
@@ -120,7 +128,7 @@ const TestStep = props => {
                         </button>
                     ) : null}
                 </Row> */}
-            </div>
+            </Col>
         )
     } else {
         return null
@@ -140,6 +148,9 @@ const mapStatesToProps = state => {
 }
 const mapActionToProps = dispatch => {
     return {
+        onSetMessageType: type => dispatch(setMessageType(type)),
+        onSetShowAlert: data => dispatch(setShowAlert(data)),
+        onSetMessage: message => dispatch(setMessage(message)),
         onSetStep: step => dispatch(setStep(step)),
         onFetchQuestion: mobileNumber => dispatch(FetchQuestion(mobileNumber)),
         onSetAnswer: answers => dispatch(setAnswer(answers)),
@@ -147,4 +158,7 @@ const mapActionToProps = dispatch => {
             dispatch(saveAnswer(mobileNumber, question_id, answer_id))
     }
 }
+// setMessageType("Warning")
+// setShowAlert(true)
+// setMessage
 export default connect(mapStatesToProps, mapActionToProps)(TestStep)

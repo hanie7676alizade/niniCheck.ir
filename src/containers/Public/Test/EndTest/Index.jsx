@@ -1,14 +1,29 @@
-import React, { useState } from "react"
+import React, { useState,useEffect } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import { CSSTransition } from "react-transition-group"
 import { connect } from "react-redux"
-import { Col, Row } from "react-bootstrap"
 
+import { setShowModal, setProbability } from "store/Test/actions"
 import classes from "scss/Public/Test.module.scss"
 const QuestionSAndAnswers = props => {
     const [ShowDescription, setShowDescription] = useState(false)
-    
+    let malePribability = 0
+    let femalePribability = 0
+
+    useEffect(() => {
+        props.answersStore.map(item => {
+            console.log(item,'item');
+            if (item.probability === "female") {
+                femalePribability++
+            } else if (item.probability === "male") {
+                malePribability++
+            }
+            console.log(malePribability,'malePribability',femalePribability,'femalePribability');
+        })
+        props.onSetShowModal(true)
+    }, [])
+
     const classNameShowDescription = {
         enter: classes.enterShowDescription,
         enterActive: classes.enterActiveShowDescription,
@@ -21,7 +36,6 @@ const QuestionSAndAnswers = props => {
     return (
         <div className={classes.TestEndStep}>
             <div className={classes.QuestionSAndAnswers}>
-                end Step
                 {props.questionStore.map((item, index) => {
                     return (
                         <div
@@ -83,6 +97,9 @@ const mapStatesToProps = state => {
 }
 
 const mapActionToProps = dispatch => {
-    return {}
+    return {
+        onSetShowModal: data => dispatch(setShowModal(data)),
+        onSetProbability: data => dispatch(setProbability(data))
+    }
 }
 export default connect(mapStatesToProps, mapActionToProps)(QuestionSAndAnswers)

@@ -60,7 +60,6 @@ export function* fetchQuestionSaga(action) {
 }
 
 export function* saveAnswerSaga(action) {
-    console.log(action, 'saaaaaaaaveeeeeeee');
     yield put(setLoading(true));
     try {
         const response = yield axios.post(`test/answer`, { "mobile": action.mobileNumber, "question_id": action.question_id, "answer_id": action.answer_id });
