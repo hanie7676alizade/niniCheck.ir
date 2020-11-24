@@ -21,6 +21,11 @@ const QuestionSAndAnswers = props => {
             }
             console.log(malePribability,'malePribability',femalePribability,'femalePribability');
         })
+        if(malePribability>femalePribability){
+            props.onSetProbability('male')
+        }else{
+            props.onSetProbability('female')
+        }
         props.onSetShowModal(true)
     }, [])
 

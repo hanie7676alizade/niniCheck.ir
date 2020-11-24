@@ -188,15 +188,14 @@
     margin: 0 auto;
     .QuestionSAndAnswers {
       width: 70%;
-      margin: 0 20% 0 0 ;
+      margin: 0 20% 0 0;
       @media screen and (max-width: 900.01px) {
-      margin: 0 10% ;
-      width: 80%;
+        margin: 0 10%;
+        width: 80%;
       }
       @media screen and (max-width: 600.01px) {
         width: 92%;
-      margin: 0 5% 0 0 ;
-
+        margin: 0 5% 0 0;
       }
       p {
         text-align: right;
@@ -313,187 +312,195 @@
   background-color: #00000057;
   z-index: 150;
   margin: -110px 0 0;
-
-  .Modal {
-    width: 85%;
-    margin: 15px 7.5% 0;
-    position: fixed;
-    z-index: 200;
-    background-color: #fefefe;
-    padding: 0px 0;
-    border-radius: 5px;
-    @media screen and (max-width: 1000.01px) {
-      margin: 15px 2.5%;
-      width: 95%;
+}
+.Modal {
+  width: 85%;
+  margin: 15px 7.5% 0;
+  position: absolute;
+  z-index: 300;
+  background-color: #fefefe;
+  padding: 0px 0;
+  border-radius: 5px;
+  @media screen and (max-width: 1000.01px) {
+    margin: 15px 2.5%;
+    width: 95%;
+  }
+  @media screen and (max-width: 767.01px) {
+    margin: 55px 2.5%;
+  }
+  @media screen and (max-width: 507.01px) {
+    padding-bottom: 50px;
+  }
+  .ShareContainer {
+    margin: 40px 0 0;
+    .imgBaby {
+      width: 60% !important;
+      margin: 5px auto;
+      border-radius: 5px;
     }
-    @media screen and (max-width: 767.01px) {
-      margin: 55px 2.5%;
+    .editIcon {
+      color: #8e8e8e;
+      float: right;
+      margin: 12px 0 0;
+      position: absolute;
+      right: 15% !important;
     }
-    @media screen and (max-width: 507.01px) {
-      padding-bottom: 50px;
+    textarea {
+      width: 70%;
+      height: 40px;
+      margin: 5px 15% -5px;
+      border: none;
+      display: block;
+      float: right;
+      font-size: 14px;
+      padding-right: 20px;
+      &::placeholder {
+        color: #888888;
+      }
     }
-    .ShareContainer {
-      margin: 40px 0 0;
-      .imgBaby {
-        width: 60% !important;
-        margin: 5px auto;
-        border-radius: 5px;
+    span {
+      display: block;
+      width: 100%;
+      margin: 17px 0 13px;
+      color: #808080;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: center;
+      @media screen and (max-width: 800.01px) {
+        font-size: 15px;
       }
-      .editIcon {
-        color: #8e8e8e;
-        float: right;
-        margin: 12px 0 0;
-        position: absolute;
-        right: 15% !important;
+    }
+    .SocialNetworkList {
+      width: 390px;
+      margin: 0 auto;
+      @media screen and (max-width: 850.01px) {
+        width: 65%;
       }
-      textarea {
-        width: 70%;
-        height: 40px;
-        margin: 5px 15% -5px;
-        border: none;
-        display: block;
-        float: right;
-        font-size: 14px;
-        padding-right: 20px;
-        &::placeholder {
-          color: #888888;
-        }
-      }
-      span {
-        display: block;
+      .SocialNetwork {
         width: 100%;
-        margin: 17px 0 13px;
-        color: #808080;
-        font-size: 18px;
-        font-weight: 400;
-        text-align: center;
-        @media screen and (max-width: 800.01px) {
-          font-size: 15px;
-        }
-      }
-      .SocialNetworkList {
-        width: 390px;
-        margin: 0 auto;
-        @media screen and (max-width: 850.01px) {
-          width: 65%;
-        }
-        .SocialNetwork {
+        min-width: 190px;
+        height: 44px;
+        margin: 3px 0;
+        border-radius: 1px;
+        a {
+          display: block;
+          color: #fefefe;
           width: 100%;
-          min-width: 190px;
-          height: 44px;
-          margin: 3px 0;
-          border-radius: 1px;
-          a {
-            display: block;
-            color: #fefefe;
-            width: 100%;
-            height: 100%;
+          height: 100%;
 
+          p {
+            font-size: 10px;
+            width: 70%;
+            display: block;
+            float: right;
+            text-align: center;
+            margin: 11px 0;
+            line-height: 20px;
+            border-left: 1px solid #fefefe;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            transition: 0.4s;
+          }
+          .Icon {
+            margin: 11px 0 0;
+            width: 30%;
+            font-size: 21px;
+          }
+          &:hover {
             p {
-              font-size: 10px;
-              width: 70%;
-              display: block;
-              float: right;
-              text-align: center;
-              margin: 11px 0;
-              line-height: 20px;
-              border-left: 1px solid #fefefe;
-              font-weight: 300;
-              letter-spacing: 1.5px;
-              transition: 0.4s;
-            }
-            .Icon {
-              margin: 11px 0 0;
-              width: 30%;
-              font-size: 21px;
-            }
-            &:hover {
-              p {
-                font-size: 12px;
-              }
+              font-size: 12px;
             }
           }
         }
+      }
+    }
+    @media screen and (max-width: 800.01px) {
+      margin: 5px 0;
+    }
+  }
+  .AdContainer {
+    background-color: #f4f4f4;
+    border-radius: 5px 0 0 5px;
+    @media screen and (max-width: 767.01px) {
+      display: none;
+    }
+    span {
+      margin-top: 55px;
+      width: 90%;
+      margin-right: 10%;
+      color: #287494;
+      font-size: 22px;
+      font-weight: 500;
+      @media screen and (max-width: 1199.01px) {
+        width: 95%;
+        margin-right: 5%;
+        font-size: 19px;
       }
       @media screen and (max-width: 800.01px) {
-        margin: 5px 0;
+        width: 98%;
+        margin-right: 2%;
+        margin-top: 20px;
+        font-size: 18px;
       }
     }
-
-    .AdContainer {
-      background-color: #f4f4f4;
-      border-radius: 5px 0 0 5px;
-      @media screen and (max-width: 767.01px) {
-        display: none;
-      }
-      span {
-        margin-top: 55px;
-        width: 90%;
-        margin-right: 10%;
-        color: #287494;
-        font-size: 22px;
-        font-weight: 500;
-        @media screen and (max-width: 1199.01px) {
-          width: 95%;
-          margin-right: 5%;
-          font-size: 19px;
+    ul {
+      margin-top: 10px;
+      li {
+        margin: 10px 0 !important;
+        list-style: none;
+        p {
+          margin: 30px 0 15px;
+          color: #666666;
+          font-weight: 400;
+          font-size: 15px;
         }
-        @media screen and (max-width: 800.01px) {
-          width: 98%;
-          margin-right: 2%;
-          margin-top: 20px;
-          font-size: 18px;
-        }
-      }
-      ul {
-        margin-top: 10px;
-        li {
-          margin: 10px 0 !important;
-          list-style: none;
-          p {
-            margin: 30px 0 15px;
-            color: #666666;
-            font-weight: 400;
-            font-size: 15px;
-          }
-          a {
-            text-decoration: none;
-            color: #aaaaaa;
-            font-weight: 300;
-            font-size: 13px;
-            &:hover {
-              color: #777777;
-            }
-          }
-          @media screen and (max-width: 760.01px) {
-            margin: 5px 0 !important;
-            p {
-              font-size: 13px;
-            }
-            a {
-              font-size: 11px;
-            }
-          }
-          @media screen and (max-width: 560.01px) {
-            margin: 5px 0 !important;
-            p {
-              font-size: 13px;
-            }
-            a {
-              font-size: 9px;
-            }
+        a {
+          text-decoration: none;
+          color: #aaaaaa;
+          font-weight: 300;
+          font-size: 13px;
+          &:hover {
+            color: #777777;
           }
         }
         @media screen and (max-width: 760.01px) {
-          margin-top: 0px;
+          margin: 5px 0 !important;
+          p {
+            font-size: 13px;
+          }
+          a {
+            font-size: 11px;
+          }
+        }
+        @media screen and (max-width: 560.01px) {
+          margin: 5px 0 !important;
+          p {
+            font-size: 13px;
+          }
+          a {
+            font-size: 9px;
+          }
         }
       }
-      .AdImage {
-        width: 90%;
-        height: 200px;
-        margin: 60px auto;
-        background-color: #666666;
+      @media screen and (max-width: 760.01px) {
+        margin-top: 0px;
       }
+    }
+    .AdImage {
+      width: 90%;
+      height: 200px;
+      margin: 60px auto;
+      background-color: #666666;
+    }
+  }
+  .closeIcon {
+    margin: 5px 10px -40px -27.5px;
+    font-size: 25px;
+    color: #777777;
+    font-weight: 300;
+    position: relative;
+    &:hover {
+      color: #0b0831;
     }
   }
 }

@@ -3,6 +3,7 @@ import { Form, Col, Row } from "react-bootstrap"
 import { connect } from "react-redux"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faEdit } from "@fortawesome/free-regular-svg-icons"
+import { faTimes } from "@fortawesome/free-solid-svg-icons"
 import {
     faWhatsapp,
     faTelegramPlane,
@@ -10,13 +11,12 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 
 import classes from "scss/Public/Test.module.scss"
-import { setMobileNumber, sendCode } from "store/Test/actions"
+import { setShowModal } from "store/Test/actions"
 import babySon from "assets/images/baby-is-son.jpg"
 import babyDaughter from "assets/images/baby-is-daughter.jpg"
 
 const TestModal = props => {
     const [CustomerText, setCustomerText] = useState("")
-    const [BabyState, setBabyState] = useState("")
     const SocialNetworkList = [
         {
             name: "WhatsApp",
@@ -35,11 +35,26 @@ const TestModal = props => {
             iconName: faTelegramPlane
         }
     ]
-    console.log(CustomerText)
+    const onCloseModal = () => {
+        props.onSetShowModal(false)
+        console.log("onCloseModal")
+    }
     return (
-        <div className={classes.mask}>
+        <React.Fragment>
+            <div className={classes.mask} onClick={onCloseModal}></div>
             <Row className={classes.Modal}>
-                <Col lg={6} xl={6} md={6} xs={12} className={classes.ShareContainer}>
+                <FontAwesomeIcon
+                    icon={faTimes}
+                    className={classes.closeIcon}
+                    onClick={onCloseModal}
+                />
+                <Col
+                    lg={6}
+                    xl={6}
+                    md={6}
+                    xs={12}
+                    className={classes.ShareContainer}
+                >
                     <Row>
                         <FontAwesomeIcon
                             icon={faEdit}
@@ -52,7 +67,11 @@ const TestModal = props => {
                             onChange={e => setCustomerText(e.target.value)}
                         />
                         <img
-                            src={babyDaughter}
+                            src={
+                                props.probabilityStore === "male"
+                                    ? babySon
+                                    : babyDaughter
+                            }
                             className={classes.imgBaby}
                             alt={`daughter`}
                         />
@@ -83,7 +102,13 @@ const TestModal = props => {
                         </Col>
                     </Row>
                 </Col>
-                <Col lg={6} xl={6} md={6} sm={12} className={classes.AdContainer}>
+                <Col
+                    lg={6}
+                    xl={6}
+                    md={6}
+                    sm={12}
+                    className={classes.AdContainer}
+                >
                     <Row>
                         <span>لینک های پیشنهادی برای شما عزیزان:</span>
                     </Row>
@@ -129,20 +154,18 @@ const TestModal = props => {
                     </Row>
                 </Col>
             </Row>
-        </div>
+        </React.Fragment>
     )
 }
 const mapStatesToProps = state => {
     return {
-        male: state.Test.male,
-        female: state.Test.female,
+        probabilityStore: state.Test.probability
     }
 }
 
 const mapActionToProps = dispatch => {
     return {
-        // onSetMobileNumber: step => dispatch(setMobileNumber(step)),
-        // onSendCode: mobileNumber => dispatch(sendCode(mobileNumber))
+        onSetShowModal: data => dispatch(setShowModal(data))
     }
 }
 export default connect(mapStatesToProps, mapActionToProps)(TestModal)
