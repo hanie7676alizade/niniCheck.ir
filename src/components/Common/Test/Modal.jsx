@@ -37,7 +37,6 @@ const TestModal = props => {
     ]
     const onCloseModal = () => {
         props.onSetShowModal(false)
-        console.log("onCloseModal")
     }
     return (
         <React.Fragment>
@@ -78,11 +77,12 @@ const TestModal = props => {
                         <span>نتیجه تست را با دوستانتان به اشتراک بگذارید</span>
                         <Col lg={12} md={12} xs={12}>
                             <Row className={classes.SocialNetworkList}>
-                                {SocialNetworkList.map(item => {
+                                {SocialNetworkList.map((item,index) => {
                                     return (
                                         <Col
                                             lg={6}
                                             className={classes.SocialNetwork}
+                                            key={index}
                                         >
                                             <a
                                                 href={item.link}

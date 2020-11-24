@@ -7,8 +7,6 @@ import {
     setStep,
     FetchQuestion,
     setAnswer,
-    setFemaleProbability,
-    setMaleProbability,
     saveAnswer,
     setMessageType,
     setMessage,
@@ -44,7 +42,6 @@ const TestStep = props => {
     }, [])
 
     const NextStep = () => {
-        console.log("To Step>>>>", props.stepStore + 1)
         var customerAnswer = oldAnswers.filter(
             item => item.question_id == currentQuestion.id
         )
@@ -66,11 +63,6 @@ const TestStep = props => {
     const PrevStep = () => {
         props.onSetStep(props.stepStore - 1)
     }
-    console.log(
-        props.questionStore.length,
-        props.questionStore,
-        "props.questionStore"
-    )
     if (props.questionStore.length) {
         return (
             <Col className={classes.TestStep}>
@@ -85,13 +77,13 @@ const TestStep = props => {
                                 key={`${currentQuestion.id}${index + 1}`}
                             >
                                 <Form.Check
+                                    checked={currentQuestion.Answers.length && currentQuestion.Answers[0].option ==index +1 }
                                     className={classes.CheckBox}
                                     type="radio"
                                     label={item.answer}
                                     custom
                                     name="formHorizontalRadios"
                                     id={index + 1}
-                                    // checked={currentQuestion.answers.length && currentQuestion.answers[0].option ===index +1 }
                                     onClick={e => setArrayAnswer(e)}
                                 />
                             </Col>
