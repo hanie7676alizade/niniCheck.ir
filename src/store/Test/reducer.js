@@ -16,7 +16,6 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    console.log(action, 'action called');
     switch (action.type) {
         case actionTypes.TEST_SET_STEP:
             return updateObject(state, { step: action.step })

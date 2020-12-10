@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
-import { Row, Col, Form } from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 
 import classes from "scss/Public/Test.module.scss"
 import {
@@ -12,84 +12,88 @@ import {
     setMessage,
     setShowAlert
 } from "store/Test/actions"
+import RadioList from "components/Common/Test/QuestionStep/RadioList"
 
 const TestStep = props => {
     const currentQuestion = props.questionStore[props.stepStore - 1]
-    var oldAnswers = props.answerStore
-    const questionOptions = currentQuestion
-        ? JSON.parse(currentQuestion.options)
-        : null
 
-    const setArrayAnswer = e => {
-        var changedAnswer = props.answerStore.filter(
-            item => item.question_id != currentQuestion.id
-        )
-        oldAnswers = [
-            ...changedAnswer,
-            {
-                question_id: currentQuestion.id,
-                answer_id: e.target.id,
-                probability: questionOptions[e.target.id - 1].probability
-            }
-        ]
-        props.onSetAnswer(oldAnswers)
-    }
+    let selectedOptionId = null
+
+    var oldAnswers = props.answersStore || []
+
+    const currentQuestionOptions = currentQuestion
+        ? JSON.parse(currentQuestion.options)
+        : []
 
     useEffect(() => {
-        if (!!props.isVerifiedStore) {
+        if (props.isVerifiedStore) {
             props.onFetchQuestion(props.mobileNumberStore)
         }
     }, [])
 
-    const NextStep = () => {
-        var customerAnswer = oldAnswers.filter(
-            item => item.question_id == currentQuestion.id
-        )
-        if (customerAnswer.length !== 0) {
-            //if option is seleted => save answer in dataBase
+    const SaveAnswerReduxDatabase = choosenRdb => {
+        //save answer in database and set answer in redux
+        if (choosenRdb) {
+            // keep Choosen Answer Id in a state. for NextStep and PrevStep function
+            selectedOptionId = choosenRdb.id
+            // remove answer of current Question. so... we haven't duplicate answer
+            var CurrentOldAnswers = [...oldAnswers].filter(
+                item => item.questionId != currentQuestion.id
+            )
+            // new answer
+            var CurrentAnswer = {
+                probability:
+                    currentQuestionOptions[selectedOptionId - 1].probability,
+                questionId: currentQuestion.id,
+                selectedOptionId: selectedOptionId
+            }
+            props.onSetAnswer([...CurrentOldAnswers, { ...CurrentAnswer }]) //save on redux
+            // save on dataBase
             props.onSaveAnswer(
                 props.mobileNumberStore,
                 currentQuestion.id,
-                customerAnswer[0].answer_id
+                selectedOptionId
             )
-            props.onSetStep(props.stepStore + 1) //next Step
+        }
+    }
+
+    const NextStep = () => {
+        const radios = document.querySelectorAll('[name="radio"]')
+        let choosenRdb = false //we have not any answer here
+        radios.forEach(element => {
+            // 32=> map on radios to find checked element
+            if (element.checked) choosenRdb = element
+        })
+        SaveAnswerReduxDatabase(choosenRdb)
+        if (choosenRdb) {
+            props.onSetStep(props.stepStore + 1)
         } else {
+            props.onSetMessage("پاسخی انتخاب نشده")
             props.onSetMessageType("Warning")
             props.onSetShowAlert(true)
-            props.onSetMessage(`پاسخی انتخاب نشده`)
         }
     }
 
     const PrevStep = () => {
+        const radios = document.querySelectorAll('[name="radio"]')
+        let choosenRdb = false //we have not any answer here
+        radios.forEach(element => {
+            // map on radios to find checked element
+            if (element.checked) choosenRdb = element
+        })
+        SaveAnswerReduxDatabase(choosenRdb)
+
+        // prev Step
         props.onSetStep(props.stepStore - 1)
     }
+
     if (props.questionStore.length) {
         return (
             <Col className={classes.TestStep}>
                 <Row>
                     <h4>{currentQuestion.question}</h4>
                 </Row>
-                <Form.Group as={Row}>
-                    {questionOptions.map((item, index) => {
-                        return (
-                            <Col
-                                className={classes.option}
-                                key={`${currentQuestion.id}${index + 1}`}
-                            >
-                                <Form.Check
-                                    checked={currentQuestion.Answers.length && currentQuestion.Answers[0].option ==index +1 }
-                                    className={classes.CheckBox}
-                                    type="radio"
-                                    label={item.answer}
-                                    custom
-                                    name="formHorizontalRadios"
-                                    id={index + 1}
-                                    onClick={e => setArrayAnswer(e)}
-                                />
-                            </Col>
-                        )
-                    })}
-                </Form.Group>
+                <RadioList currentQuestion={currentQuestion} />
                 <Row>
                     <div className={classes.NextPrevBTN}>
                         <button
@@ -110,16 +114,6 @@ const TestStep = props => {
                         )}
                     </div>
                 </Row>
-                {/* <Row>
-                    {props.stepStore === props.questionStore.length ? (
-                        <button
-                            className={classes.finishBTN}
-                            onClick={e => FinishTest(e)}
-                        >
-                            اتمام تست
-                        </button>
-                    ) : null}
-                </Row> */}
             </Col>
         )
     } else {
@@ -133,9 +127,7 @@ const mapStatesToProps = state => {
         mobileNumberStore: state.Test.mobileNumber,
         stepStore: state.Test.step,
         questionStore: state.Test.question,
-        answerStore: state.Test.answers,
-        femaleStore: state.Test.female,
-        maleStore: state.Test.male
+        answersStore: state.Test.answers
     }
 }
 const mapActionToProps = dispatch => {
@@ -150,7 +142,5 @@ const mapActionToProps = dispatch => {
             dispatch(saveAnswer(mobileNumber, question_id, answer_id))
     }
 }
-// setMessageType("Warning")
-// setShowAlert(true)
-// setMessage
+
 export default connect(mapStatesToProps, mapActionToProps)(TestStep)

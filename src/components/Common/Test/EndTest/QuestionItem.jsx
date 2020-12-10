@@ -46,21 +46,21 @@ const Question = props => {
                     <div className={classes.answer}>
                         <p>
                             {
-                                JSON.parse(props.item.options)[
-                                    props.answersStore[props.index].answer_id -
-                                        1
-                                ].answer
+                               JSON.parse(props.item.options)[
+                                   props.answersStore[props.index].selectedOptionId -
+                                       1
+                               ].answer
                             }
                         </p>
                     </div>
                     <div className={classes.description}>
-                                        <span>توضیحات:</span>
-                                        <div
-                                            dangerouslySetInnerHTML={{
-                                                __html: props.item.description
-                                            }}
-                                        ></div>
-                                    </div>
+                        <span>توضیحات:</span>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: props.item.description
+                            }}
+                        ></div>
+                    </div>
                 </div>
             </CSSTransition>
         </div>

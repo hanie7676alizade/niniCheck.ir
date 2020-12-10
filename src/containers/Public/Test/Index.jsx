@@ -6,14 +6,14 @@ import WithLoading from "HOC/WithLoading"
 import { setDocumentTitle } from "store/Common/actions"
 import classes from "scss/Public/Test.module.scss"
 import TestRegister from "components/Common/Test/register"
-import TestStep from "components/Common/Test/Step"
+import TestStep from "components/Common/Test/QuestionStep/Step"
 import TestConfirm from "components/Common/Test/Confirm"
 import TestModal from "components/Common/Test/Modal"
 import { setShowAlert, setMessage } from "store/Test/actions"
 import Alert from "components/UI/Alert/Alert"
 import EndTest from "components/Common/Test/EndTest/Index"
 import TestHeader from "components/Common/Test/TestHeader"
-import Steper from "components/Common/Test/Steper"
+// import Steper from "components/Common/Test/Steper"
 
 class Test extends Component {
     internalAlert = null
@@ -63,8 +63,8 @@ class Test extends Component {
         return (
             <WithLoading>
                 {this.onShowModal()}
-                <Steper/>
-                <Col  className={`${classes.TestPage}`}>
+                {/* <Steper /> */}
+                <Col className={`${classes.TestPage}`}>
                     {alert}
                     <TestHeader questionStore={this.props.questionStore} />
                     <Row>{this.renderStepsComponent()}</Row>

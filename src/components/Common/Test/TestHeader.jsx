@@ -28,6 +28,37 @@ const TestHeader = props => {
                 return props.stepStore
         }
     }
+    const renderMobileSteper = () => {
+        return (
+            <>
+                <div className={classes.circle}>{handleStepNumber()}</div>
+                {props.questionStore.length === 0 ? null : (
+                    <p>
+                        از
+                        {props.questionStore.length}
+                    </p>
+                )}
+            </>
+        )
+    }
+
+    const renderDesktopSteper = () => {
+        return (
+            <div className={classes.allSteps}>
+                <p>{props.stepStore + "  از  " + props.questionStore.length}</p>
+                <div id="done" className={` done ${classes.done}`}></div>
+            </div>
+        )
+    }
+    const handleSteper = () => {
+        if (props.questionStore.length !== 0) {
+            if (window.innerWidth > 992) {
+                return renderDesktopSteper()
+            } else {
+                return renderMobileSteper()
+            }
+        }
+    }
     return (
         <Row className={classes.TestHeader}>
             <h2>نی نی من دختره یا پسر؟</h2>
@@ -35,25 +66,7 @@ const TestHeader = props => {
                 <img className={classes.babyIcon} src={babyBoy} alt="babyBoy" />
             </Col>
             <Col lg={6} sm={6} xs={4}>
-                {props.questionStore.length === 0 ? null : (
-                    <div className={classes.allSteps}>
-                        <div
-                            id="done"
-                            className={` done ${classes.done}`}
-                        ></div>
-                    </div>
-                )}
-
-                {/* in mobile */}
-                {/* {props.questionStore.length > 0 ? (
-                    <div className={classes.circle}>{handleStepNumber()}</div>
-                ) : null}
-                {props.questionStore.length === 0 ? null : (
-                    <p>
-                        از
-                        {props.questionStore.length}
-                    </p>
-                )} */}
+                {handleSteper()}
             </Col>
             <Col lg={3} sm={3} xs={4}>
                 <img
