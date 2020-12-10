@@ -45,7 +45,13 @@ const TestHeader = props => {
     const renderDesktopSteper = () => {
         return (
             <div className={classes.allSteps}>
-                <p>{props.stepStore + "  از  " + props.questionStore.length}</p>
+                <p>
+                    {props.stepStore <= props.questionStore.length
+                        ? props.stepStore
+                        : props.questionStore.length +
+                          "  از  " +
+                          props.questionStore.length}
+                </p>
                 <div id="done" className={` done ${classes.done}`}></div>
             </div>
         )

@@ -8,7 +8,7 @@ export function* sendCodeSaga(action) {
     yield put(setLoading(true));
     try {
         const response = yield axios.post(`test/send-code`, { "mobile": action.mobileNumber });
-        console.log(response, 'sendCodeSaga');
+        // console.log(response, 'sendCodeSaga');
         yield put(setMessage('کد اعتبارسنجی پیامک شد'))
         yield put(setMessageType('Success'))
         yield put(setShowAlert(true));
@@ -27,7 +27,7 @@ export function* VerifyCodeSaga(action) {
     yield put(setLoading(true));
     try {
         const response = yield axios.post(`test/verify-code`, { "mobile": action.mobileNumber, 'code': action.code });
-        console.log(response, 'VerifyCodeSaga');
+        // console.log(response, 'VerifyCodeSaga');
         if (response.status === 200) {
             yield put(isVerified(true))
             yield put(setStep(1))
@@ -47,7 +47,7 @@ export function* fetchQuestionSaga(action) {
     try {
         const response = yield axios.post(`test/questions`, { "mobile": action.mobileNumber });
         yield put(setQuestion(response.data))
-        console.log(response.data, 'fetchQuestionSaga');
+        // console.log(response.data, 'fetchQuestionSaga');
     } catch (err) {
         yield put(setStep(-1))
         yield put(setMessageType('Warning'))
@@ -63,7 +63,7 @@ export function* saveAnswerSaga(action) {
     yield put(setLoading(true));
     try {
         const response = yield axios.post(`test/answer`, { "mobile": action.mobileNumber, "question_id": action.question_id, "answer_id": action.answer_id });
-        console.log(response.data, 'saveAnswerSaga');
+        // console.log(response.data, 'saveAnswerSaga');
     } catch (err) {
         console.log("sagaERR saveAnswerSaga", err.response);
         yield put(setMessageType('Warning'))

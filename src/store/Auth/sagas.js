@@ -25,7 +25,7 @@ export function* signupSaga(action) {
             token
         }));
     } catch (err) {
-        console.log("saga", err.response);
+        // console.log("saga", err.response);
         if (err.response && err.response.status === 422)
             yield put(actions.signupSetError(err.response.data));
     } finally {

@@ -27,9 +27,6 @@ const CheckBoxItem = props => {
             className={classes.option}
             key={`${props.stepStore}${props.index + 1}`}
         >
-            {props.currentQuestion.Answers[0]
-                ? console.log(props.currentQuestion, "currentQuestion")
-                : null}
             <label
                 className={classes.container}
                 onClick={() => handleRadioClick()}

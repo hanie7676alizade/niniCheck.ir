@@ -5,13 +5,12 @@ import { setShowAlert, isSaveEmail, setMessage, setMessageType } from "./actions
 import axios from "axiosInstance";
 
 export function* saveSaga(action) {
-    // console.log('newsletter befor saveSaga');
-
+    
     yield put(setLoading(true));
     try {
         const response = yield axios.post('/newsletter', { 'email': action.email });
 
-        console.log(response, 'saveSaga');
+        // console.log(response, 'saveSaga');
         yield put(setMessage('پیامی به ایمیل شما ارسال شد.لطفا برای تایید، به ایمیل خود مراجعه فرمایید.'))
         yield put(setMessageType('Success'))
         yield put(setShowAlert(true));
