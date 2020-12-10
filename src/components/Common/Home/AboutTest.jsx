@@ -97,8 +97,8 @@ const AboutTest = () => {
                             <li>
                                 <p>نمایش منابع</p>
                             </li>
-                            {Source.map(item => (
-                                <li>
+                            {Source.map((item,index) => (
+                                <li key={index} >
                                     <p>
                                         {item.text}
                                         <a
