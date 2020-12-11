@@ -36,6 +36,7 @@ const TestModal = props => {
         }
     ]
     const onCloseModal = () => {
+        console.log("closeModal")
         props.onSetShowModal(false)
     }
     return (
@@ -77,7 +78,7 @@ const TestModal = props => {
                         <span>نتیجه تست را با دوستانتان به اشتراک بگذارید</span>
                         <Col lg={12} md={12} xs={12}>
                             <Row className={classes.SocialNetworkList}>
-                                {SocialNetworkList.map((item,index) => {
+                                {SocialNetworkList.map((item, index) => {
                                     return (
                                         <Col
                                             lg={6}
