@@ -5,15 +5,23 @@ import classes from "scss/Public/Test.module.scss"
 
 const CheckBoxItem = props => {
     const checkedRadioElement = useRef(null)
-    let sellectedOption = props.currentQuestion.Answers.length
-        ? props.currentQuestion.Answers[0].option
+    let selectedOptionId = !!props.currentAnswer
+        ? props.currentAnswer.selectedOptionId
         : null
-    const [IsChecked, setIsChecked] = useState(
-        eval(sellectedOption) === props.index + 1
+    const optionTarget = eval(selectedOptionId)
+    const [IsChecked, setIsChecked] = useState(optionTarget === props.index + 1)
+    console.log(IsChecked, "IsChecked ",optionTarget ,'optionTarget' )
+    
+    console.log(
+        props.currentAnswer,
+        "props.currentAnswer useEffect",
+        IsChecked
     )
     useEffect(() => {
-        if (props.currentQuestion.Answers.length) {
-            checkedRadioElement.current.checked = IsChecked
+        console.log(IsChecked, "IsChecked useEffect",optionTarget ,'===' ,props.index + 1)
+
+        if (optionTarget === props.index + 1) {
+            checkedRadioElement.current.checked = true
         }
     })
 

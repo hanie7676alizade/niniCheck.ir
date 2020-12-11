@@ -1,7 +1,7 @@
 import { put } from "redux-saga/effects";
 
 import { setLoading } from "store/Common/actions";
-import { setStep, setMessage, setShowAlert, setMessageType, isVerified, setQuestion } from "store/Test/actions";
+import { setStep, setMessage, setShowAlert, setMessageType, isVerified, setQuestion, setAnswer } from "store/Test/actions";
 import axios from "axiosInstance";
 
 export function* sendCodeSaga(action) {
@@ -46,7 +46,24 @@ export function* fetchQuestionSaga(action) {
     yield put(setLoading(true));
     try {
         const response = yield axios.post(`test/questions`, { "mobile": action.mobileNumber });
+        const Answers =[]
+         response.data.map(item => {//setAnswers
+            if (item.Answers.length) {
+                const OptionId = item.Answers[0].option
+                const probability = JSON.parse(item.options)[OptionId - 1].probability
+                var CurrentAnswer = {
+                    probability,
+                    questionId: item.Answers[0].questionId,
+                    selectedOptionId: OptionId
+                }
+                // console.log(CurrentAnswer, 'CurrentAnswer saga');
+                Answers.push(CurrentAnswer)
+            }
+        })
+        if (Answers.length) yield put(setAnswer(Answers))
+
         yield put(setQuestion(response.data))
+
         // console.log(response.data, 'fetchQuestionSaga');
     } catch (err) {
         yield put(setStep(-1))

@@ -31,15 +31,29 @@ const TestStep = props => {
         }
     }, [])
 
+    // const setAnswersInStore = () => {
+    //     props.questionStore.map((item, index) => {
+    //         // index + 1 = currentQuestion.id :)
+    //         // item = currentQuestion
+    //         const OptionId = item.Answers[0].option
+    //        const probability = JSON.parse(item.options)[OptionId-1].probability
+    //         var CurrentAnswer = {
+    //             probability,
+    //             questionId: index +1,
+    //             selectedOptionId: OptionId
+    //         }
+    //         console.log(CurrentAnswer);
+    //     })
+    // }
     const SaveAnswerReduxDatabase = choosenRdb => {
         //save answer in database and set answer in redux
         if (choosenRdb) {
             // keep Choosen Answer Id in a state. for NextStep and PrevStep function
             selectedOptionId = choosenRdb.id
             // remove answer of current Question. so... we haven't duplicate answer
-            var CurrentOldAnswers = [...oldAnswers].filter(
-                item => item.questionId != currentQuestion.id
-            )
+            var CurrentOldAnswers = oldAnswers.length
+                ? [...oldAnswers].filter(item=>item.questionId != props.stepStore)
+                : []
             // new answer
             var CurrentAnswer = {
                 probability:
