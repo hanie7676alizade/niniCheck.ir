@@ -21,12 +21,13 @@ const Question = props => {
     return (
         <div
             className={classes.question}
-            onClick={onShowDescription}
             key={props.index}
         >
-            <p className={classes.questionText}>
+            <p className={classes.questionText}
+                onClick={onShowDescription}
+            >
                 <FontAwesomeIcon
-                    icon={faChevronLeft}
+            icon={faChevronLeft}
                     className={`${
                         ShowDescription
                             ? classes.arrowIconDown

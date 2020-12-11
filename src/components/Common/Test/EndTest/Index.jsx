@@ -26,6 +26,9 @@ const QuestionSAndAnswers = props => {
 
     return (
         <div className={classes.TestEndStep}>
+            <h5>
+                تحلیل پاسخ های شما
+            </h5>
             <div className={classes.QuestionSAndAnswers}>
                 {props.questionStore.map((item, index) => {
                     return (

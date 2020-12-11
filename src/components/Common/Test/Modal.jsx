@@ -115,7 +115,7 @@ const TestModal = props => {
                     </Row>
                     <Row>
                         <div className="col-xl-1" />
-                        <ul className="col-xl-5 col-lg-6 col-md-6 col-sm-6">
+                        <ul className="col-xl-5 col-lg-6 col-md-6 col-sm-6 m-auto">
                             <li>
                                 <p>محصولات کودک</p>
                             </li>
@@ -132,7 +132,7 @@ const TestModal = props => {
                                 <a href="/">دکوراسیون تخصصی کودک</a>
                             </li>
                         </ul>
-                        <ul className="col-xl-5 col-lg-6 col-md-6 col-sm-6">
+                        <ul className="col-xl-5 col-lg-6 col-md-6 col-sm-6 m-auto">
                             <li>
                                 <p>محصولات کودک</p>
                             </li>
@@ -151,7 +151,9 @@ const TestModal = props => {
                         </ul>
                     </Row>
                     <Row>
-                        <div className={classes.AdImage}></div>
+                        <div className={classes.AdImage}>
+                            <p>محل نمایش تبلیغات شما</p>
+                        </div>
                     </Row>
                 </Col>
             </Row>
