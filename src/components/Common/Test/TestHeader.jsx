@@ -12,7 +12,7 @@ const TestHeader = props => {
         DoneStep = document.getElementById("done")
         if (DoneStep) {
             let newWidth = Math.round(
-                (100 / props.questionStore.length) * props.stepStore - 1
+                (100 / props.questionStore.length - 0.5) * props.stepStore
             )
             DoneStep.style.width = `${newWidth}%`
         }
@@ -29,32 +29,32 @@ const TestHeader = props => {
         }
     }
     const renderMobileSteper = () => {
-        return (
-            <>
-                <div className={classes.circle}>{handleStepNumber()}</div>
-                {props.questionStore.length === 0 ? null : (
-                    <p>
-                        از
-                        {props.questionStore.length}
-                    </p>
-                )}
-            </>
-        )
+        if (!(props.stepStore > props.questionStore.length))
+            return (
+                <>
+                    <div className={classes.circle}>{handleStepNumber()}</div>
+                    {props.questionStore.length === 0 ? null : (
+                        <p>
+                            از
+                            {props.questionStore.length}
+                        </p>
+                    )}
+                </>
+            )
     }
 
     const renderDesktopSteper = () => {
-        return (
-            <div className={classes.allSteps}>
-                <p>
-                    {props.stepStore <= props.questionStore.length
-                        ? props.stepStore
-                        : props.questionStore.length +
-                          "  از  " +
-                          props.questionStore.length}
-                </p>
-                <div id="done" className={` done ${classes.done}`}></div>
-            </div>
-        )
+        if (!(props.stepStore > props.questionStore.length))
+            return (
+                <div className={classes.allSteps}>
+                    <p>
+                        {props.stepStore +
+                            "  از  " +
+                            props.questionStore.length}
+                    </p>
+                    <div id="done" className={` done ${classes.done}`}></div>
+                </div>
+            )
     }
     const handleSteper = () => {
         if (props.questionStore.length !== 0) {
