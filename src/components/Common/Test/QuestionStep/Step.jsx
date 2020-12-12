@@ -110,6 +110,14 @@ const TestStep = props => {
                 <RadioList currentQuestion={currentQuestion} />
                 <Row>
                     <div className={classes.NextPrevBTN}>
+                    {props.stepStore === 1 ? null : (
+                            <button
+                                className="outLineNone"
+                                onClick={e => PrevStep(e)}
+                            >
+                                قبلی
+                            </button>
+                        )}
                         <button
                             className="outLineNone"
                             onClick={e => NextStep(e)}
@@ -118,14 +126,7 @@ const TestStep = props => {
                                 ? "مشاهده نتیجه تست"
                                 : "بعدی"}
                         </button>
-                        {props.stepStore === 1 ? null : (
-                            <button
-                                className="outLineNone"
-                                onClick={e => PrevStep(e)}
-                            >
-                                قبلی
-                            </button>
-                        )}
+                       
                     </div>
                 </Row>
             </Col>
