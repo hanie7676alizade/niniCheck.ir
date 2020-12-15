@@ -15,20 +15,24 @@ const DragWeeks = props => {
         for (let index = 2; index <= 41; index++) {
             elements = [...elements, index]
         }
-        return elements.map((slideContent, index) => {
-            return (
-                <SwiperSlide
-                    key={slideContent}
-                    virtualIndex={index}
-                    style={{ width: "50px" }}
-                >
-                    <WeekItem
-                        item={slideContent}
-                        WeekPosts={props.WeekPosts.rows[slideContent - 2]}
-                    />
-                </SwiperSlide>
-            )
-        })
+        if(props.WeekPosts.rows.length){
+            
+            return elements.map((slideContent, index) => {
+                 return (
+                    <SwiperSlide
+                        key={slideContent}
+                        virtualIndex={index}
+                        style={{ width: "50px" }}
+                    >
+                        <WeekItem
+                            item={slideContent}
+                            WeekPosts={props.WeekPosts.rows[slideContent - 2]}
+                        />
+                    </SwiperSlide>
+                )
+            })
+        }
+        return null
     }
     const responsiveSwiper = () => {
         if (window.innerWidth > 1250) return 13

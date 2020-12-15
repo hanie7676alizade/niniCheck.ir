@@ -39,9 +39,9 @@ const AsyncPublicBlogItem = lazy(() => {
     return import("containers/Public/Blog/Item/Item")
 })
 
-const AsyncLayout = lazy(() => {
-    return import("containers/Public/Layout/Index")
-})
+ const AsyncPublicTest = lazy(() => {
+     return import("containers/Public/Test/Index")
+ })
 
 const AsyncAdminSocialNetworks = lazy(() => {
     return import("containers/Admin/Layout/SocialNetworks/Index")
@@ -182,9 +182,9 @@ const animatedSwith = props => {
                                         <AsyncPublicUnSubscribed />
                                     </Suspense>
                                 </Route>
-                                <Route path="/layout">
+                                <Route path="/test">
                                     <Suspense fallback={<ComponentLoading />}>
-                                        <AsyncLayout />
+                                        <AsyncPublicTest />
                                     </Suspense>
                                 </Route>
 
@@ -211,6 +211,4 @@ const mapStatesToProps = state => {
     }
 }
 
-export default connect(
-    mapStatesToProps
-)(withRouter(animatedSwith))
+export default connect(mapStatesToProps)(withRouter(animatedSwith))

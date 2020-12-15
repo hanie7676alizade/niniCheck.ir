@@ -5,6 +5,7 @@ import babyBoy from "../../../assets/images/icons/babyBoy.png"
 import babyGirl from "../../../assets/images/icons/babyGirl.png"
 import mad from "../../../assets/images/mad.png"
 import classes from "scss/Public/Home.module.scss"
+import { Link } from "react-router-dom"
 
 const StartTest = () => (
     <React.Fragment>
@@ -26,9 +27,11 @@ const StartTest = () => (
                 </Row>
                 <Row>
                     <Col>
-                        <Button variant="primary" size="lg">
+                        <Link
+                        to='/test'
+                        >
                             شروع تست
-                        </Button>
+                        </Link>
                     </Col>
                 </Row>
                 <Row>

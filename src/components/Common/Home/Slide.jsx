@@ -8,13 +8,13 @@ import WelcomeMessage from "components/Common/Home/WelcomeMessage"
 
 const Slide = props => {
     var slide = null
-    if (window.innerWidth > 768) {
+    // if (window.innerWidth > 768) {
         slide = (
             <div className={classes.SlideImage}>
                 <img src={image} alt="Slide" />
             </div>
         )
-    }
+    // }
     return (
         <React.Fragment>
             {slide}

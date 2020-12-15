@@ -26,7 +26,6 @@ export const HTMLEditor = (props) => {
             
          success(result.data);
       } catch (error) {
-         console.log("catch", error);
          failure('HTTP Error: ');
       }
    }

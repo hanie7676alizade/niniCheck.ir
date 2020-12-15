@@ -9,7 +9,7 @@ export function* fetchConfigSaga(action) {
     try {
         const response = yield axios.get(`admin/config/${action.section}`);
         yield put(setConfig(response.data));
-        console.log(response.data, 'fetchConfigSaga');
+        // console.log(response.data, 'fetchConfigSaga');
     } catch (err) {
         console.log("sagaERR fetchConfigSaga", err.response);
     } finally {

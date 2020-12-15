@@ -11,7 +11,6 @@ import Instagram from "components/Common/Home/Instagram"
 import DragWeeks from "components/Common/Home/DragWeeks"
 import Alert from "components/UI/Alert/Alert"
 
-import { initiateFetchConfig } from "store/Config/actions"
 import { frontFetchAll, frontSetRows } from "store/Post/actions"
 import { setShowAlert, isSaveEmail, setMessage } from "store/NewsLetter/actions"
 import Articles from "components/layout/Public/Articles/Articles"
@@ -98,9 +97,8 @@ const mapStatesToProps = state => {
 
 const mapActionsToProps = dispatch => {
     return {
-        onFetchConfig: section => dispatch(initiateFetchConfig(section)),
-        onSetMessage: data => dispatch(setMessage(data)),
         onIsSaveEmail: data => dispatch(isSaveEmail(data)),
+        onSetMessage: data => dispatch(setMessage(data)),
         onSetShowAlert: data => dispatch(setShowAlert(data)),
         onFetch40Weeks: category => dispatch(frontFetchAll(category)), //هفته-به-هفته
         onFrontSetRows: data => dispatch(frontSetRows(data))

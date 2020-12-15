@@ -132,7 +132,6 @@ const mapStatesToProps = state => {
     return {
         socialNetworks: state.PublicLayout.socialNetworks,
         posts: state.PublicLayout.posts,
-        isSaveEmail: state.NewsLetter.isSave,
         messageErr:state.NewsLetter.message
     }
 }

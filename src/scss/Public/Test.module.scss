@@ -1,0 +1,636 @@
+.TestPage {
+  width: 70%;
+  margin: 0px auto 0;
+  padding-top: 40px;
+  text-align: center;
+
+  @media screen and (max-width: 700.01px) {
+    width: 90%;
+  }
+  @media screen and (max-width: 550.01px) {
+    width: 100%;
+  }
+  h2 {
+    width: 100%;
+    font-size: 26px;
+    font-weight: 600;
+    color: #287494;
+    margin: -10px 0 -20px;
+
+    @media screen and (max-width: 1000.01px) {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+  }
+  .TestHeader {
+    .babyIcon {
+      max-width: 120px;
+      width: 100%;
+      margin: 20px auto 0;
+    }
+    .circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+      border: 3px solid #287494;
+      padding: 10px;
+      font-size: 27px;
+      font-weight: 700;
+      color: #287494;
+      font-family: IRANSans-web-NUM;
+      margin: 60px auto 5px;
+    }
+    p {
+      font-family: IRANSans-web-NUM;
+      color: #287494;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .allSteps {
+      width: 100%;
+      height: 35px;
+      background: rgb(243, 243, 243);
+      background: radial-gradient(circle, rgba(243, 243, 243, 1) 0%, rgb(243, 243, 243) 100%);
+      top: 100px;
+      border-radius: 15px;
+      overflow: hidden;
+      position: absolute;
+      p {
+        position: absolute;
+        width: 100%;
+        height: 35px;
+        line-height: 39px;
+        margin: 0;
+        text-align: center;
+        color: #1c4d63 !important;
+        z-index: 100;
+        font-size: 16px;
+        background: rgb(243, 243, 243);
+        background: radial-gradient(
+          circle,
+          rgba(243, 243, 243, 0.47935148180365894) 0%,
+          rgba(243, 243, 243, 0.2272506414675245) 10%,
+          rgba(243, 243, 243, 0) 39%
+        );
+      }
+      .done {
+        position: relative;
+        left: 0;
+        display: block;
+        float: left;
+        width: 0%;
+        height: 100%;
+        background: #287494;
+        background: linear-gradient(
+          90deg,
+          rgba(40, 116, 148, 0.726) 0%,
+          rgba(40, 116, 148, 0.952) 0%,
+          rgba(40, 116, 148, 0.952) 96%,
+          rgba(0, 0, 0, 0) 99%
+        );
+        transition: 0.9s;
+      }
+    }
+  }
+  .TestStep {
+    width: 80%;
+    margin: 0 auto;
+    @media screen and (max-width: 500.01px) {
+      width: 95%;
+    }
+    h4 {
+      width: 100%;
+      display: block;
+      margin: 25px auto;
+      font-size: 16px;
+      font-weight: 400;
+      color: #555555;
+    }
+    .option {
+      font-size: 15px;
+      font-weight: 400;
+      color: #666666;
+      .container {
+        width: fit-content;
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin: 15px auto 12px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      /* Hide the browser's default radio button */
+      .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      /* Create a custom radio button */
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 22px;
+        width: 22px;
+        background-color: #fefefe;
+        border: 3px solid #287494ce;
+        border-radius: 50%;
+      }
+
+      .container:hover input ~ .checkmark {
+        border: 3px solid #287494;
+      }
+
+      /* When the radio button is checked, add a blue background */
+      .container input:checked ~ .checkmark {
+        background-color: #287494;
+      }
+
+      /* Create the indicator (the dot/circle - hidden when not checked) */
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      /* Show the indicator (dot/circle) when checked */
+      .container input:checked ~ .checkmark:after {
+        display: block;
+      }
+    }
+    .NextPrevBTN {
+      margin: 40px auto;
+      width: 300px;
+      button {
+        width: 50%;
+        background-color: #ffffff00;
+        border: none;
+        font-size: 19px;
+        color: #888888;
+        &:hover {
+          color: #287494;
+        }
+      }
+    }
+    .finishBTN {
+      width: 200px;
+      height: 50px;
+      background-color: #ffffff00;
+      border: 2px solid #287494;
+      border-radius: 2px;
+      font-size: 20px;
+      color: #287494;
+      margin: 30px auto 20px;
+      transition: 0.3s;
+      &:hover {
+        color: #fefefe;
+        background-color: #287494;
+      }
+    }
+  }
+  .TestRegister {
+    width: 60%;
+    margin: 0 auto;
+    @media screen and (max-width: 1150.01px) {
+      width: 90%;
+      input {
+        width: 280px !important;
+      }
+    }
+    .TestConfirm {
+      input {
+        border: none !important;
+        border-bottom: 1px solid #28749477 !important;
+        border-radius: 0 !important;
+        &:focus {
+          border-bottom: 2px solid #287494aa !important;
+          outline: none !important;
+          box-shadow: none !important;
+        }
+      }
+    }
+    input {
+      margin: 40px auto -10px;
+      width: 50%;
+      height: 40px;
+      border-color: #28749477;
+      text-align: center;
+      font-size: 25px;
+      color: #287494;
+      font-weight: 600;
+
+      &::placeholder {
+        color: #28749477;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+      }
+    }
+    label {
+      width: 20%;
+      line-height: 35px;
+      color: #287494;
+      font-weight: 600;
+      font-size: 17px;
+    }
+    button {
+      width: 180px;
+      height: 45px;
+      background-color: #ffffff00;
+      border: 2px solid #28749488;
+      border-radius: 4px;
+      font-size: 18px;
+      color: #287494;
+      margin: 50px auto 20px;
+      transition: 0.3s;
+      &:hover {
+        color: #fefefe;
+        background-color: #287494;
+      }
+    }
+    .EditNumber {
+      width: fit-content;
+      height: fit-content;
+      color: #888888;
+      border: 1px solid #28749400;
+      font-size: 13px;
+      padding: 0px 5px;
+      margin: -15px 20px 0;
+      font-weight: 400;
+      line-height: 23px;
+      border-radius: 0;
+      &:hover {
+        color: #287494;
+        background-color: #ffffff00;
+        border-bottom: 1px solid #28749499;
+      }
+    }
+  }
+  .TestEndStep {
+    width: 100%;
+    margin: 0 auto;
+    h5 {
+      font-weight: 700;
+      font-size: 20px;
+      color: #287494;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      top: 0px;
+      margin: 0px 0 25px;
+      @media screen and (max-width: 800.01px) {
+        font-size: 18px;
+      }
+    }
+    .QuestionSAndAnswers {
+      width: 70%;
+      margin: 0 20% 0 0;
+      @media screen and (max-width: 900.01px) {
+        margin: 0 10%;
+        width: 80%;
+      }
+      @media screen and (max-width: 600.01px) {
+        width: 92%;
+        margin: 0 5% 0 0;
+        .questionText {
+          font-size: 14px;
+        }
+        .answer {
+          p {
+            font-size: 15px !important;
+          }
+        }
+        .description {
+          p {
+            font-size: 12.5px !important;
+          }
+        }
+      }
+      p {
+        text-align: right;
+        height: 30px;
+        font-size: 18px;
+      }
+      .question {
+        width: 100%;
+        height: auto;
+        margin: 0px auto 35px;
+        .questionText {
+          width: fit-content;
+          height: auto;
+          font-weight: 700;
+          line-height: 30px;
+          margin: 0 0 20px;
+          cursor: pointer;
+          z-index: 100;
+          .arrowIcon {
+            margin: -25px 10px -4px;
+            transition: 0.4s;
+            &.arrowIconLeft {
+              position: relative;
+              transform: rotateZ(0);
+            }
+            &.arrowIconDown {
+              position: relative;
+              transform: rotateZ(-90deg);
+            }
+          }
+        }
+        .answer {
+          width: 90%;
+          margin: 0px auto 20px;
+          p {
+            font-size: 17px;
+            width: 100%;
+          }
+        }
+        .description {
+          width: 90%;
+          height: auto;
+          margin: 0 auto;
+          border: 1px solid #2874943d;
+          border-radius: 20px;
+          span {
+            font-weight: 500;
+            font-size: 16px;
+            color: #777777;
+            width: fit-content;
+            display: block;
+            padding: 10px;
+          }
+          p {
+            font-size: 15px;
+            padding: 5px;
+            width: 100%;
+            height: fit-content;
+            font-weight: 400;
+            color: #999999;
+          }
+        }
+        //show Description
+        .enterShowDescription {
+          height: 0;
+          overflow: hidden;
+        }
+        .enterActiveShowDescription {
+          animation-name: ShowDescription;
+          animation-duration: 0.4s;
+          animation-timing-function: ease-in;
+          animation-fill-mode: forwards;
+        }
+        @keyframes ShowDescription {
+          0% {
+            height: 0px;
+          }
+          90% {
+            height: 200px;
+          }
+          100% {
+            height: auto;
+          }
+        }
+        .exitActiveShowDescription {
+          animation-name: FadeDescription;
+          animation-duration: 0.3s;
+          animation-timing-function: ease-in;
+          animation-fill-mode: forwards;
+        }
+        .exitShowDescription {
+          height: auto;
+          overflow: hidden;
+        }
+        @keyframes FadeDescription {
+          0% {
+            height: auto;
+          }
+          50% {
+            height: 150px;
+          }
+          90% {
+            height: 10px;
+          }
+          100% {
+            height: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+.mask {
+  width: 100%;
+  height: 110%;
+  position: fixed;
+  background-color: #00000057;
+  z-index: 150;
+  margin: -110px 0 0;
+}
+.Modal {
+  width: 85%;
+  margin: -50px 7.5% 0;
+  position: absolute;
+  z-index: 300;
+  background-color: #fefefe;
+  padding: 0px 0;
+  border-radius: 5px;
+  @media screen and (max-width: 1000.01px) {
+    margin: 15px 2.5%;
+    width: 95%;
+  }
+  @media screen and (max-width: 767.01px) {
+    margin: 55px 2.5%;
+  }
+  @media screen and (max-width: 507.01px) {
+    padding-bottom: 50px;
+  }
+  .ShareContainer {
+    margin: 40px 0 0;
+    .imgBaby {
+      width: 60% !important;
+      margin: 5px auto;
+      border-radius: 5px;
+    }
+    .editIcon {
+      color: #8e8e8e;
+      float: right;
+      margin: 12px 0 0;
+      position: absolute;
+      right: 15% !important;
+    }
+    textarea {
+      width: 70%;
+      height: 40px;
+      margin: 5px 15% -5px;
+      border: none;
+      display: block;
+      float: right;
+      font-size: 14px;
+      padding-right: 20px;
+      &::placeholder {
+        color: #888888;
+      }
+    }
+    span {
+      display: block;
+      width: 100%;
+      margin: 17px 0 13px;
+      color: #808080;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: center;
+      @media screen and (max-width: 800.01px) {
+        font-size: 15px;
+      }
+    }
+    .SocialNetworkList {
+      width: 390px;
+      margin: 0 auto;
+      @media screen and (max-width: 850.01px) {
+        width: 65%;
+      }
+      .SocialNetwork {
+        width: 100%;
+        min-width: 190px;
+        height: 44px;
+        margin: 3px 0;
+        border-radius: 1px;
+        a {
+          display: block;
+          color: #fefefe;
+          width: 100%;
+          height: 100%;
+
+          p {
+            font-size: 10px;
+            width: 70%;
+            display: block;
+            float: right;
+            text-align: center;
+            margin: 11px 0;
+            line-height: 20px;
+            border-left: 1px solid #fefefe;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            transition: 0.4s;
+          }
+          .Icon {
+            margin: 11px 0 0;
+            width: 30%;
+            font-size: 21px;
+          }
+          &:hover {
+            p {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 800.01px) {
+      margin: 5px 0;
+    }
+  }
+  .AdContainer {
+    background-color: #f4f4f4;
+    border-radius: 5px 0 0 5px;
+    @media screen and (max-width: 767.01px) {
+      // display: none;
+    }
+    span {
+      margin-top: 55px;
+      width: 90%;
+      margin-right: 10%;
+      color: #287494;
+      font-size: 22px;
+      font-weight: 500;
+      @media screen and (max-width: 1199.01px) {
+        width: 95%;
+        margin-right: 5%;
+        font-size: 19px;
+      }
+      @media screen and (max-width: 800.01px) {
+        width: 98%;
+        margin-right: 2%;
+        margin-top: 20px;
+        font-size: 17px;
+      }
+    }
+    ul {
+      margin-top: 10px;
+      li {
+        margin: 10px 0 !important;
+        list-style: none;
+        p {
+          margin: 30px 0 15px;
+          color: #666666;
+          font-weight: 400;
+          font-size: 15px;
+          text-align: center;
+        }
+        a {
+          text-decoration: none;
+          color: #aaaaaa;
+          font-weight: 300;
+          font-size: 13px;
+          text-align: center;
+          display: block;
+          margin: 10px auto !important;
+          &:hover {
+            color: #777777;
+          }
+        }
+        @media screen and (max-width: 760.01px) {
+          margin: 5px 0 !important;
+          p {
+            font-size: 13px;
+          }
+          a {
+            font-size: 11px;
+          }
+        }
+        @media screen and (max-width: 560.01px) {
+          margin: 5px 0 !important;
+          p {
+            font-size: 13px;
+          }
+          a {
+            font-size: 9px;
+          }
+        }
+      }
+      @media screen and (max-width: 760.01px) {
+        margin-top: 0px;
+      }
+    }
+    .AdImage {
+      width: 90%;
+      height: 200px;
+      margin: 60px auto;
+      background-color: #666666;
+      p {
+        width: fit-content;
+        color: #e4e4e4;
+        font-size: 22px;
+        line-height: 200px;
+        margin: 0 auto;
+        font-weight: 700;
+      }
+    }
+  }
+  .closeIcon {
+    margin: 5px 10px -40px -27.5px;
+    font-size: 25px;
+    color: #777777;
+    font-weight: 300;
+    position: relative;
+    z-index: 100;
+    &:hover {
+      color: #0b0831;
+    }
+  }
+}

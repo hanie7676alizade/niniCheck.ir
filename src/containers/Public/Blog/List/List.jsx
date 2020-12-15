@@ -31,7 +31,6 @@ class BlogList extends React.Component {
                 object[item.split("=")[0]] = item.split("=")[1]
         }
 
-        console.log(search, object)
         Object.keys(object).forEach(element => {
             if (object.hasOwnProperty(element)) {
                 if (element === "q") {
